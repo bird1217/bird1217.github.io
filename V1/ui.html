@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta>
+    <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
     <link href="ionic.min.css" rel="stylesheet">
     <script src="ionic.bundle.min.js"></script>
@@ -10,30 +10,30 @@
     <body ng-app="starter">
     <ion-pane>
       <ion-header-bar class="bar-positive">
-        <h1 class="title">ªÎ¦v</h1>
+        <h1 class="title">è‚¥å®…</h1>
       </ion-header-bar>
       <ion-content>
       <div ng-controller="ClickToEditCtrl">
       <div ng-repeat="dictionary in title2">
-       		<ion-checkbox ng-model="showEnglish">Åã¥Ü¥¿¸Ñ­^¤å</ion-checkbox>
+       		<ion-checkbox ng-model="showEnglish">é¡¯ç¤ºæ­£è§£è‹±æ–‡</ion-checkbox>
 	      <div  class="card">
 			  <div class="item item-divider">
-			    <span ng-show="showEnglish">¥¿½Tµª®×¬O&nbsp{{dictionary.eg}}</span>
-			    <span ng-show="dictionary.txtEnglish!='' &&dictionary.txtEnglish.toUpperCase() != dictionary.eg.toUpperCase()" style="color:red">¿ù»~</span>
-		      	<span ng-show="dictionary.txtEnglish.toUpperCase()==dictionary.eg.toUpperCase()" style="color:blue">¥¿½T</span>
+			    <span ng-show="showEnglish">æ­£ç¢ºç­”æ¡ˆæ˜¯&nbsp{{dictionary.eg}}</span>
+			    <span ng-show="dictionary.txtEnglish!='' &&dictionary.txtEnglish.toUpperCase() != dictionary.eg.toUpperCase()" style="color:red">éŒ¯èª¤</span>
+		      	<span ng-show="dictionary.txtEnglish.toUpperCase()==dictionary.eg.toUpperCase()" style="color:blue">æ­£ç¢º</span>
 			  </div>
 			  	<div class="item item-text-wrap">
 			    	{{dictionary.ch}}
 			   	</div>
 				<div class="item item-divider">
 					<button class="button  button-positive button-small icon-right ion-chevron-right" ng-disabled="finishFlag" ng-click="nextDictionary()">
-					¤U¤@­Ó³æ¦r
+					ä¸‹ä¸€å€‹å–®å­—
 					</button>
 				</div>
 		  </div>
 	      	<div class="list">
 			  <label class="item item-input">
-			    <input type="text" placeholder="§Aªºµª®×¬O¡H" id="txtEnglish" ng-model="dictionary.txtEnglish">
+			    <input type="text" placeholder="ä½ çš„ç­”æ¡ˆæ˜¯ï¼Ÿ" id="txtEnglish" ng-model="dictionary.txtEnglish">
 			  </label>
 			</div>
 		</div>
