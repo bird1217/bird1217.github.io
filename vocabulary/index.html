@@ -4,9 +4,13 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width"/>
 
     <title>Tabs Example</title>
-    <link href="http://code.ionicframework.com/nightly/css/ionic.min.css" rel="stylesheet" />
-    <script src="http://code.ionicframework.com/nightly/js/ionic.bundle.min.js"></script>
+    <link href="ionic.min.css" rel="stylesheet" />
+    <script src="ionic.bundle.min.js"></script>
     <script src="app.js"></script>
+
+    <script src="HomeTabCtrl.js" charset="big5"></script>
+    <script src="verb1Ctrl.js" charset="big5"></script>
+    <script src="verb2Ctrl.js" charset="big5"></script>
 
     <script src="HomeTabCtrl.js" charset="big5"></script>
     <script src="verb1Ctrl.js" charset="big5"></script>
@@ -26,15 +30,15 @@
     <script id="templates/tabs.html" type="text/ng-template">
       <ion-tabs class="tabs-icon-top tabs-positive">
         
-        <ion-tab title="¥j­^¤å" icon="ion-document-text" href="#/tab/home">
+        <ion-tab title="å¤è‹±æ–‡" icon="ion-document-text" href="#/tab/home">
           <ion-nav-view name="home-tab"></ion-nav-view>
         </ion-tab>
 
-        <ion-tab title="°Êµü1" icon="ion-document-text" href="#/tab/verb1">
+        <ion-tab title="å‹•è©1" icon="ion-document-text" href="#/tab/verb1">
           <ion-nav-view name="verb1-tab"></ion-nav-view>
         </ion-tab>
 
-        <ion-tab title="°Êµü2" icon="ion-document-text" href="#/tab/verb2">
+        <ion-tab title="å‹•è©2" icon="ion-document-text" href="#/tab/verb2">
           <ion-nav-view name="verb2-tab"></ion-nav-view>
         </ion-tab>
 
@@ -42,28 +46,28 @@
     </script>
 
     <script id="templates/home.html" type="text/ng-template">
-      <ion-view view-title="¥j­^¤å">
+      <ion-view view-title="å¤è‹±æ–‡">
         <ion-content class="padding">
           <ion-list>
-            <ion-radio name="rdo1" ng-model="displaySetting" ng-value="'eg,ch'">¤¤¤å+­^¤å</ion-radio>
-            <ion-radio name="rdo1" ng-model="displaySetting" ng-value="'ch'">¤¤¤å</ion-radio>
-            <ion-radio name="rdo1" ng-model="displaySetting" ng-value="'eg'">­^¤å</ion-radio>
-            <ion-radio name="rdo1" ng-model="displaySetting" ng-value="'ch2'">´úÅç¼Ò¦¡</ion-radio>
+            <ion-radio name="rdo1" ng-model="displaySetting" ng-value="'eg,ch'">ä¸­æ–‡+è‹±æ–‡</ion-radio>
+            <ion-radio name="rdo1" ng-model="displaySetting" ng-value="'ch'">ä¸­æ–‡</ion-radio>
+            <ion-radio name="rdo1" ng-model="displaySetting" ng-value="'eg'">è‹±æ–‡</ion-radio>
+            <ion-radio name="rdo1" ng-model="displaySetting" ng-value="'ch2'">æ¸¬é©—æ¨¡å¼</ion-radio>
           </ion-list>
           <div ng-repeat="dictionary in vocabulary2">
             <div class="card">
               <div class="item item-divider" style="color:red">
-                ©|¾l³æ¦r¼Æ¶q:{{$parent.vocabulary.length-$parent.chooseIndex.length}}
+                å°šé¤˜å–®å­—æ•¸é‡:{{$parent.vocabulary.length-$parent.chooseIndex.length}}
               </div>
               <div class="item item-divider" style="color:red">
-                ³æ¦r§Ç¸¹:{{dictionary.number}}
+                å–®å­—åºè™Ÿ:{{dictionary.number}}
               </div>
               <div class="list">
 
                 <label class="item item-input item-stacked-label" ng-show="$parent.displaySetting.indexOf('ch')>-1">
                   <span class="input-label">
                     <span>
-                      ¤¤¤åµª®×¬O&nbsp
+                      ä¸­æ–‡ç­”æ¡ˆæ˜¯&nbsp
                       <span style="color:red;bold:true;">{{dictionary.ch}}</span>
                     </span>
                   </span>
@@ -71,25 +75,25 @@
                 <label class="item item-input item-stacked-label" ng-show="$parent.displaySetting.indexOf('eg')>-1">
                   <span class="input-label">
                     <span>
-                      ­^¤åµª®×¬O&nbsp
+                      è‹±æ–‡ç­”æ¡ˆæ˜¯&nbsp
                       <span style="color:red;bold:true;">{{dictionary.eg}}</span>
                     </span>
                   </span>
                 </label>
                 <div class="item item-divider" style="color:red">
                   <button class="button  button-positive button-small icon-right ion-chevron-right" ng-disabled="finishFlag" ng-click="nextDictionary()">
-                    ¤U¤@­Ó³æ¦r
+                    ä¸‹ä¸€å€‹å–®å­—
                   </button>
                 </div>
               </div>
 
               <div class="list" ng-show="$parent.displaySetting.indexOf('ch2')>-1">
                 <label class="item item-input">
-                  <input type="text" placeholder="§Aªºµª®×¬O¡H" id="txtEnglish" ng-model="dictionary.txtEnglish">
+                  <input type="text" placeholder="ä½ çš„ç­”æ¡ˆæ˜¯ï¼Ÿ" id="txtEnglish" ng-model="dictionary.txtEnglish">
 			  </label>
                 <label class="item item-input" ng-show="(dictionary.txtEnglish!='' && dictionary.txtEnglish.toUpperCase() != dictionary.eg.toUpperCase()) || dictionary.txtEnglish.toUpperCase()==dictionary.eg.toUpperCase()">
-                  <span ng-show="dictionary.txtEnglish!='' && dictionary.txtEnglish.toUpperCase() != dictionary.eg.toUpperCase()" style="color:red">¿ù»~</span>
-                  <span ng-show="dictionary.txtEnglish.toUpperCase()==dictionary.eg.toUpperCase()" style="color:blue">¥¿½T</span>
+                  <span ng-show="dictionary.txtEnglish!='' && dictionary.txtEnglish.toUpperCase() != dictionary.eg.toUpperCase()" style="color:red">éŒ¯èª¤</span>
+                  <span ng-show="dictionary.txtEnglish.toUpperCase()==dictionary.eg.toUpperCase()" style="color:blue">æ­£ç¢º</span>
                 </label>
               </div>
             </div>
@@ -100,28 +104,28 @@
     </script>
 
     <script id="templates/verb1.html" type="text/ng-template">
-      <ion-view view-title="°Êµü1">
+      <ion-view view-title="å‹•è©1">
         <ion-content class="padding">
           <ion-list>
-            <ion-radio name="rdo2" ng-model="displaySetting" ng-value="'eg,ch'">¤¤¤å+­^¤å</ion-radio>
-            <ion-radio name="rdo2" ng-model="displaySetting" ng-value="'ch'">¤¤¤å</ion-radio>
-            <ion-radio name="rdo2" ng-model="displaySetting" ng-value="'eg'">­^¤å</ion-radio>
-            <ion-radio name="rdo2" ng-model="displaySetting" ng-value="'ch2'">´úÅç¼Ò¦¡</ion-radio>
+            <ion-radio name="rdo2" ng-model="displaySetting" ng-value="'eg,ch'">ä¸­æ–‡+è‹±æ–‡</ion-radio>
+            <ion-radio name="rdo2" ng-model="displaySetting" ng-value="'ch'">ä¸­æ–‡</ion-radio>
+            <ion-radio name="rdo2" ng-model="displaySetting" ng-value="'eg'">è‹±æ–‡</ion-radio>
+            <ion-radio name="rdo2" ng-model="displaySetting" ng-value="'ch2'">æ¸¬é©—æ¨¡å¼</ion-radio>
           </ion-list>
           <div ng-repeat="dictionary in vocabulary2">
             <div class="card">
               <div class="item item-divider" style="color:red">
-                ©|¾l³æ¦r¼Æ¶q:{{$parent.vocabulary.length-$parent.chooseIndex.length}}
+                å°šé¤˜å–®å­—æ•¸é‡:{{$parent.vocabulary.length-$parent.chooseIndex.length}}
               </div>
               <div class="item item-divider" style="color:red">
-                ³æ¦r§Ç¸¹:{{dictionary.number}}
+                å–®å­—åºè™Ÿ:{{dictionary.number}}
               </div>
               <div class="list">
 
                 <label class="item item-input item-stacked-label" ng-show="$parent.displaySetting.indexOf('ch')>-1">
                   <span class="input-label">
                     <span>
-                      ¤¤¤åµª®×¬O&nbsp
+                      ä¸­æ–‡ç­”æ¡ˆæ˜¯&nbsp
                       <span style="color:red;bold:true;">{{dictionary.ch}}</span>
                     </span>
                   </span>
@@ -129,25 +133,25 @@
                 <label class="item item-input item-stacked-label" ng-show="$parent.displaySetting.indexOf('eg')>-1">
                   <span class="input-label">
                     <span>
-                      ­^¤åµª®×¬O&nbsp
+                      è‹±æ–‡ç­”æ¡ˆæ˜¯&nbsp
                       <span style="color:red;bold:true;">{{dictionary.eg}}</span>
                     </span>
                   </span>
                 </label>
                 <div class="item item-divider" style="color:red">
                   <button class="button  button-positive button-small icon-right ion-chevron-right" ng-disabled="finishFlag" ng-click="nextDictionary()">
-                    ¤U¤@­Ó³æ¦r
+                    ä¸‹ä¸€å€‹å–®å­—
                   </button>
                 </div>
               </div>
 
               <div class="list" ng-show="$parent.displaySetting.indexOf('ch2')>-1">
                 <label class="item item-input">
-                  <input type="text" placeholder="§Aªºµª®×¬O¡H" id="txtEnglish" ng-model="dictionary.txtEnglish"/>
+                  <input type="text" placeholder="ä½ çš„ç­”æ¡ˆæ˜¯ï¼Ÿ" id="txtEnglish" ng-model="dictionary.txtEnglish"/>
                 </label>
                 <label class="item item-input" ng-show="(dictionary.txtEnglish!='' && dictionary.txtEnglish.toUpperCase() != dictionary.eg.toUpperCase()) || dictionary.txtEnglish.toUpperCase()==dictionary.eg.toUpperCase()">
-                  <span ng-show="dictionary.txtEnglish!='' && dictionary.txtEnglish.toUpperCase() != dictionary.eg.toUpperCase()" style="color:red">¿ù»~</span>
-                  <span ng-show="dictionary.txtEnglish.toUpperCase()==dictionary.eg.toUpperCase()" style="color:blue">¥¿½T</span>
+                  <span ng-show="dictionary.txtEnglish!='' && dictionary.txtEnglish.toUpperCase() != dictionary.eg.toUpperCase()" style="color:red">éŒ¯èª¤</span>
+                  <span ng-show="dictionary.txtEnglish.toUpperCase()==dictionary.eg.toUpperCase()" style="color:blue">æ­£ç¢º</span>
                 </label>
               </div>
             </div>
@@ -158,28 +162,28 @@
     </script>
 
     <script id="templates/verb2.html" type="text/ng-template">
-      <ion-view view-title="°Êµü2">
+      <ion-view view-title="å‹•è©2">
         <ion-content class="padding">
           <ion-list>
-            <ion-radio name="rdo3" ng-model="displaySetting" ng-value="'eg,ch'">¤¤¤å+­^¤å</ion-radio>
-            <ion-radio name="rdo3" ng-model="displaySetting" ng-value="'ch'">¤¤¤å</ion-radio>
-            <ion-radio name="rdo3" ng-model="displaySetting" ng-value="'eg'">­^¤å</ion-radio>
-            <ion-radio name="rdo3" ng-model="displaySetting" ng-value="'ch2'">´úÅç¼Ò¦¡</ion-radio>
+            <ion-radio name="rdo3" ng-model="displaySetting" ng-value="'eg,ch'">ä¸­æ–‡+è‹±æ–‡</ion-radio>
+            <ion-radio name="rdo3" ng-model="displaySetting" ng-value="'ch'">ä¸­æ–‡</ion-radio>
+            <ion-radio name="rdo3" ng-model="displaySetting" ng-value="'eg'">è‹±æ–‡</ion-radio>
+            <ion-radio name="rdo3" ng-model="displaySetting" ng-value="'ch2'">æ¸¬é©—æ¨¡å¼</ion-radio>
           </ion-list>
           <div ng-repeat="dictionary in vocabulary2">
             <div class="card">
               <div class="item item-divider" style="color:red">
-                ©|¾l³æ¦r¼Æ¶q:{{$parent.vocabulary.length-$parent.chooseIndex.length}}
+                å°šé¤˜å–®å­—æ•¸é‡:{{$parent.vocabulary.length-$parent.chooseIndex.length}}
               </div>
               <div class="item item-divider" style="color:red">
-                ³æ¦r§Ç¸¹:{{dictionary.number}}
+                å–®å­—åºè™Ÿ:{{dictionary.number}}
               </div>
               <div class="list">
 
                 <label class="item item-input item-stacked-label" ng-show="$parent.displaySetting.indexOf('ch')>-1">
                   <span class="input-label">
                     <span>
-                      ¤¤¤åµª®×¬O&nbsp
+                      ä¸­æ–‡ç­”æ¡ˆæ˜¯&nbsp
                       <span style="color:red;bold:true;">{{dictionary.ch}}</span>
                     </span>
                   </span>
@@ -187,25 +191,25 @@
                 <label class="item item-input item-stacked-label" ng-show="$parent.displaySetting.indexOf('eg')>-1">
                   <span class="input-label">
                     <span>
-                      ­^¤åµª®×¬O&nbsp
+                      è‹±æ–‡ç­”æ¡ˆæ˜¯&nbsp
                       <span style="color:red;bold:true;">{{dictionary.eg}}</span>
                     </span>
                   </span>
                 </label>
                 <div class="item item-divider" style="color:red">
                   <button class="button  button-positive button-small icon-right ion-chevron-right" ng-disabled="finishFlag" ng-click="nextDictionary()">
-                    ¤U¤@­Ó³æ¦r
+                    ä¸‹ä¸€å€‹å–®å­—
                   </button>
                 </div>
               </div>
 
               <div class="list" ng-show="$parent.displaySetting.indexOf('ch2')>-1">
                 <label class="item item-input">
-                  <input type="text" placeholder="§Aªºµª®×¬O¡H" id="txtEnglish" ng-model="dictionary.txtEnglish"/>
+                  <input type="text" placeholder="ä½ çš„ç­”æ¡ˆæ˜¯ï¼Ÿ" id="txtEnglish" ng-model="dictionary.txtEnglish"/>
                 </label>
                 <label class="item item-input" ng-show="(dictionary.txtEnglish!='' && dictionary.txtEnglish.toUpperCase() != dictionary.eg.toUpperCase()) || dictionary.txtEnglish.toUpperCase()==dictionary.eg.toUpperCase()">
-                  <span ng-show="dictionary.txtEnglish!='' && dictionary.txtEnglish.toUpperCase() != dictionary.eg.toUpperCase()" style="color:red">¿ù»~</span>
-                  <span ng-show="dictionary.txtEnglish.toUpperCase()==dictionary.eg.toUpperCase()" style="color:blue">¥¿½T</span>
+                  <span ng-show="dictionary.txtEnglish!='' && dictionary.txtEnglish.toUpperCase() != dictionary.eg.toUpperCase()" style="color:red">éŒ¯èª¤</span>
+                  <span ng-show="dictionary.txtEnglish.toUpperCase()==dictionary.eg.toUpperCase()" style="color:blue">æ­£ç¢º</span>
                 </label>
               </div>
             </div>
