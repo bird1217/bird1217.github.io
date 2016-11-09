@@ -49,7 +49,7 @@
 					});
 					  
 					setTimeout(function(){ 
-						angular.element(document.querySelector('#txtEnglish').focus()); 
+						angular.element(document.querySelector('#txtEnglish2').focus()); 
 					}, 1);		  
 					if(exist.length==0){
 					$scope.finishFlag=true;

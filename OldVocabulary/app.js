@@ -1,4 +1,4 @@
-angular.module('ionicApp', ['ionic'])
+﻿angular.module('ionicApp', ['ionic'])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
