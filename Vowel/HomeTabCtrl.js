@@ -78,15 +78,21 @@
  	
 	$scope.vocabulary2=[];
 	$scope.vocabulary = [{"number":1,"eg":"a","ch":"be動詞","txtEnglish":"","txtChinese":"","randomFlag":false}
-		,{"number":2,"eg":"e","ch":"be動詞","txtEnglish":"","txtChinese":"","randomFlag":false}
-		,{"number":3,"eg":"i","ch":"be動詞","txtEnglish":"","txtChinese":"","randomFlag":false}
-		,{"number":4,"eg":"o","ch":"be動詞","txtEnglish":"","txtChinese":"","randomFlag":false}
-		,{"number":5,"eg":"u","ch":"任何","txtEnglish":"","txtChinese":"","randomFlag":false}
-		,{"number":6,"eg":"y","ch":"任何","txtEnglish":"","txtChinese":"","randomFlag":false}
+,{"number":2,"eg":"e","ch":"be動詞","txtEnglish":"","txtChinese":"","randomFlag":false}
+,{"number":3,"eg":"i","ch":"be動詞","txtEnglish":"","txtChinese":"","randomFlag":false}
+,{"number":4,"eg":"o","ch":"be動詞","txtEnglish":"","txtChinese":"","randomFlag":false}
+,{"number":5,"eg":"u","ch":"任何","txtEnglish":"","txtChinese":"","randomFlag":false}
+,{"number":6,"eg":"y","ch":"任何","txtEnglish":"","txtChinese":"","randomFlag":false}
+,{"number":7,"eg":"a","ch":"be動詞","txtEnglish":"","txtChinese":"","randomFlag":false}
+,{"number":8,"eg":"e","ch":"be動詞","txtEnglish":"","txtChinese":"","randomFlag":false}
+,{"number":9,"eg":"i","ch":"be動詞","txtEnglish":"","txtChinese":"","randomFlag":false}
+,{"number":10,"eg":"o","ch":"be動詞","txtEnglish":"","txtChinese":"","randomFlag":false}
+,{"number":11,"eg":"u","ch":"任何","txtEnglish":"","txtChinese":"","randomFlag":false}
+,{"number":12,"eg":"y","ch":"任何","txtEnglish":"","txtChinese":"","randomFlag":false}
 		];
 	
 	$scope.randomStart=1;
-	$scope.randomEnd=6;
+	$scope.randomEnd=12;
 	
 	$scope.chooseIndex=[];
 	$scope.finishFlag=false;	
