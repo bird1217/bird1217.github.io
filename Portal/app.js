@@ -1,4 +1,4 @@
-﻿angular.module('ionicApp', ['ionic'])
+angular.module('ionicApp', ['ionic'])
 
   .config(function ($stateProvider, $urlRouterProvider) {
 
@@ -9,12 +9,12 @@
       controller: 'SignInCtrl'
     };
 
-    var tabs = {
-      name: 'tabs',
-      url: '/tab',
-      abstract: true,
-      templateUrl: 'templates/tabs.html'
-    };
+    // var tabs = {
+    //   name: 'tabs',
+    //   url: '/tab',
+    //   abstract: true,
+    //   templateUrl: 'templates/tabs.html'
+    // };
 
     var tabHome = {
       name: 'tabs.home',
