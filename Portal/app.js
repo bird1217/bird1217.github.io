@@ -22,10 +22,10 @@ $stateProvider
             .state(forgotpassword)
             .state(tabs)
 			.state(tabsHome)
-			.state(tabsFact)
-			.state(tabsfacts2)
+			.state(tabsFact)			
 			.state(tabsabout)
 			.state(tabsnavstack);
+	 //.state(tabsfacts2)
   
 
 
