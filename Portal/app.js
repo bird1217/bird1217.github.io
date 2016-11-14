@@ -1,65 +1,32 @@
 ﻿angular.module('ionicApp', ['ionic'])
 
 .config(function($stateProvider, $urlRouterProvider) {
+var signin = {name:'signin',url: '/sign-in',templateUrl: 'templates/sign-in.html',controller: 'SignInCtrl'};
 
-  $stateProvider
-    .state('signin', {
-      url: '/sign-in',
-      templateUrl: 'templates/sign-in.html',      
-      controller: 'SignInCtrl'
-    })
-    .state('forgotpassword', {
-      url: '/forgot-password',
-      templateUrl: 'templates/forgot-password.html'
-    })
-    .state('tabs', {
-      url: '/tab',
-      abstract: true,
-      templateUrl: 'templates/tabs.html'
-    })
-    .state('tabs.home', {
-      url: '/home',
-      views: {
-        'home-tab': {
-          templateUrl: 'templates/home.html',
-          controller: 'HomeTabCtrl'
-        }
-      }
-    })
-    .state('tabs.facts', {
-      url: '/facts',
-      views: {
-        'home-tab': {
-          templateUrl: 'templates/facts.html',
-          controller: 'HomeTabCtrl'
-        }
-      }
-    })
-    .state('tabs.facts2', {
-      url: '/facts2',
-      views: {
-        'home-tab': {
-          templateUrl: 'templates/facts2.html'
-        }
-      }
-    })
-    .state('tabs.about', {
-      url: '/about',
-      views: {
-        'about-tab': {
-          templateUrl: 'templates/about.html'
-        }
-      }
-    })
-    .state('tabs.navstack', {
-      url: '/navstack',
-      views: {
-        'about-tab': {
-          templateUrl: 'templates/nav-stack.html'
-        }
-      }
-    })
-    ;
+var forgotpassword = {name:'forgotpassword',url: '/forgot-password',templateUrl: 'templates/forgot-password.html'};
+
+var tabs = {name:'tabs',url: '/tab',templateUrl: 'templates/tabs.html',abstract: true};
+
+var tabsHome = {name:'tabs.home',url: '/home',views: {'home-tab': {templateUrl: 'templates/home.html',controller: 'HomeTabCtrl'}}};
+
+var tabsFact = {name:'tabs.facts',url: '/facts',views: {'home-tab': {templateUrl: 'templates/facts.html',controller: 'HomeTabCtrl'}}};
+
+var tabsfacts2 = {name:'tabs.facts2',url: '/facts2',views: {'home-tab': {templateUrl: 'templates/facts2.html'}}};
+
+var tabsabout = {name:'tabs.about',url: '/about',views: {'about-tab': {templateUrl: 'templates/about.html'}}};
+
+var tabsnavstack = {name:'tabs.navstack',url: '/navstack',views: {'about-tab': {templateUrl: 'templates/nav-stack.html'}}};
+
+$stateProvider
+            .state(signin)
+            .state(forgotpassword)
+            .state(tabs)
+			.state(tabsHome)
+			.state(tabsFact)
+			.state(tabsfacts2)
+			.state(tabsabout)
+			.state(tabsnavstack);
+  
 
 
    $urlRouterProvider.otherwise('/sign-in');
