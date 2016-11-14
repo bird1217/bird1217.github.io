@@ -11,7 +11,7 @@ var tabsHome = {name:'tabs.home',url: '/home',views: {'home-tab': {templateUrl: 
 
 var tabsFact = {name:'tabs.facts',url: '/facts',views: {'home-tab': {templateUrl: 'templates/facts.html',controller: 'HomeTabCtrl'}}};
 
-var tabsfacts2 = {name:'tabs.facts2',url: '/facts2',views: {'home-tab': {templateUrl: 'templates/facts2.html'}}};
+//var tabsfacts2 = {name:'tabs.facts2',url: '/facts2',views: {'home-tab': {templateUrl: 'templates/facts2.html'}}};
 
 var tabsabout = {name:'tabs.about',url: '/about',views: {'about-tab': {templateUrl: 'templates/about.html'}}};
 
