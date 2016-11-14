@@ -29,10 +29,63 @@
 
 
 
+    var fact =
+      {
+        name: 'tabs.facts',
+        url: '/facts',
+        views: {
+          'home-tab': {
+            templateUrl: 'templates/facts.html',
+            controller: 'HomeTabCtrl'
+          }
+        }
+      };
+
+
+    var fact2 =
+      {
+        name: 'tabs.facts2',
+        url: '/facts2',
+        views: {
+          'home-tab': {
+            templateUrl: 'templates/facts2.html'
+          }
+        }
+      };
+
+
+    var about =
+      {
+        name: 'tabs.about',
+        url: '/about',
+        views: {
+          'about-tab': {
+            templateUrl: 'templates/about.html'
+          }
+        }
+      };
+
+
+    var navstack =
+      {
+        name: 'tabs.navstack',
+        url: '/navstack',
+        views: {
+          'about-tab': {
+            templateUrl: 'templates/nav-stack.html'
+          }
+        }
+      };
+
+
+
     $stateProvider
       .state(settings)
       .state(tabs)
-      .state(tabHome);
+      .state(tabHome)
+      .state(fact2)
+      .state(about)
+      .state(navstack);
 
 
     $urlRouterProvider.otherwise('/sign-in');
