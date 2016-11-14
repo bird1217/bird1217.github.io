@@ -1,75 +1,13 @@
-﻿angular.module('ionicApp', ['ionic'])
+angular.module('ionicApp', ['ionic'])
 
 .config(function($stateProvider, $urlRouterProvider) {
 
-<<<<<<< HEAD
   var settings = {
 	      name: 'signin',
 	      url: '/sign-in',	
 	      templateUrl: 'sign-in.html',
 	      controller: 'SignInCtrl'
 };
-=======
-  $stateProvider
-    .state('signin', {
-      url: '/sign-in',
-      //templateUrl: 'sign-in.html',
-      template: '<ion-view view-title="Sign-In"><ion-content><div class="list"><label class="item item-input"><span class="input-label">Username</span><input type="text" ng-model="user.username"></label><label class="item item-input"><span class="input-label">Password</span><input type="password" ng-model="user.password"></label></div><div class="padding"><button class="button button-block button-positive" ng-click="signIn(user)">Sign-In</button><p class="text-center"><a href="#/forgot-password">Forgot password</a></p></div></ion-content></ion-view>',
-      controller: 'SignInCtrl'
-    })
-    .state('forgotpassword', {
-      url: '/forgot-password',
-      templateUrl: 'templates/forgot-password.html'
-    })
-    .state('tabs', {
-      url: '/tab',
-      abstract: true,
-      templateUrl: 'templates/tabs.html'
-    })
-    .state('tabs.home', {
-      url: '/home',
-      views: {
-        'home-tab': {
-          templateUrl: 'templates/home.html',
-          controller: 'HomeTabCtrl'
-        }
-      }
-    })
-    .state('tabs.facts', {
-      url: '/facts',
-      views: {
-        'home-tab': {
-          templateUrl: 'templates/facts.html',
-          controller: 'HomeTabCtrl'
-        }
-      }
-    })
-    .state('tabs.facts2', {
-      url: '/facts2',
-      views: {
-        'home-tab': {
-          templateUrl: 'templates/facts2.html'
-        }
-      }
-    })
-    .state('tabs.about', {
-      url: '/about',
-      views: {
-        'about-tab': {
-          templateUrl: 'templates/about.html'
-        }
-      }
-    })
-    .state('tabs.navstack', {
-      url: '/navstack',
-      views: {
-        'about-tab': {
-          templateUrl: 'templates/nav-stack.html'
-        }
-      }
-    })
-    ;
->>>>>>> origin/master
 
 
 $stateProvider.state(settings);
