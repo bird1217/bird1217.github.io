@@ -9,12 +9,12 @@ angular.module('ionicApp', ['ionic'])
       controller: 'SignInCtrl'
     };
 
-    // var tabs = {
-    //   name: 'tabs',
-    //   url: '/tab',
-    //   abstract: true,
-    //   templateUrl: 'templates/tabs.html'
-    // };
+     var tabs = {
+       name: 'tabs',
+       url: '/tab',
+       abstract: true,
+       templateUrl: 'templates/tabs.html'
+     };
 
     var tabHome = {
       name: 'tabs.home',
@@ -81,7 +81,7 @@ angular.module('ionicApp', ['ionic'])
 
     $stateProvider
       .state(settings)
-      //.state(tabs)
+      .state(tabs)
       .state(tabHome)
       .state(fact2)
       .state(about)
