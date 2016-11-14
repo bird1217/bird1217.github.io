@@ -9,12 +9,12 @@ angular.module('ionicApp', ['ionic'])
       controller: 'SignInCtrl'
     };
 
-    // var tabs = {
-    //   name: 'tabs',
-    //   url: '/tab',
-    //   abstract: true,
-    //   templateUrl: 'templates/tabs.html'
-    // };
+     var tabs = {
+       name: 'tabs',
+       url: '/tab',
+       abstract: true,
+       templateUrl: 'templates/tabs.html'
+     };
 
     var tabHome = {
       name: 'tabs.home',
