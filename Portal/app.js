@@ -1,4 +1,4 @@
-﻿angular.module('ionicApp', ['ionic'])
+angular.module('ionicApp', ['ionic'])
 
   .config(function ($stateProvider, $urlRouterProvider) {
 
@@ -27,8 +27,19 @@
       }
     };
 
-
-
+	//#/tab/facts
+	var factDirect =
+      {
+        name: 'tabs.facts',
+        url: '#/tab/facts',
+        views: {
+          'home-tab': {
+            templateUrl: 'templates/facts.html',
+            controller: 'HomeTabCtrl'
+          }
+        }
+      };
+	
     var fact =
       {
         name: 'tabs.facts',
@@ -85,7 +96,8 @@
       .state(tabHome)
       .state(fact2)
       .state(about)
-      .state(navstack);
+      .state(navstack)
+	  .state(factDirect);
 
 
     $urlRouterProvider.otherwise('/sign-in');
