@@ -32,7 +32,7 @@
       inputDate: $scope.selectedDate1,      //Optional
       mondayFirst: true,          //Optional
       //disableWeekdays: [0],       //Optional
-      closeOnSelect: true,       //Optional
+      closeOnSelect: false,       //Optional
       templateType: 'popup',       //Optional
 	  dateFormat: 'yyyy/MM/dd',
       
@@ -73,7 +73,7 @@
         <h1 class="title">DLINK 抽獎活動</h1>
     </ion-header-bar>
 
-
+<ion-content>
     <div class="list">
 
         <label class="item item-input">
@@ -107,7 +107,7 @@
               <input type="text" ng-model="activityModel.ProductSerial">
             </label>
 
-          <!--<div class="list">
+        <!--<div class="list">
             <a class="item item-icon-right" ng-click="openDatePicker()">
             購買日期
             <i class="icon ion-calendar"></i>{{ activityModel.InvoiceDate | date :  "yyyy/MM/dd" }}            
@@ -119,6 +119,7 @@
       </button>
       <!-- ngIf: activityModel.InvoiceDate -->
     </div>
+
 
         <ion-toggle ng-repeat="item in settingsList" ng-model="item.checked" ng-checked="item.checked">
             {{ item.text }}
