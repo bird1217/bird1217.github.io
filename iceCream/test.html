@@ -107,18 +107,12 @@
               <input type="text" ng-model="activityModel.ProductSerial">
             </label>
 
-        <!--<div class="list">
+        <div class="list">
             <a class="item item-icon-right" ng-click="openDatePicker()">
             購買日期
             <i class="icon ion-calendar"></i>{{ activityModel.InvoiceDate | date :  "yyyy/MM/dd" }}            
             </a>
-        </div>-->
-
-<div class="card padding">
-      <button class="button button-positive button-block" style="margin: 0;" ng-click="openDatePicker()">Open Date Picker Popup
-      </button>
-      <!-- ngIf: activityModel.InvoiceDate -->
-    </div>
+        </div>
 
 
         <ion-toggle ng-repeat="item in settingsList" ng-model="item.checked" ng-checked="item.checked">
