@@ -89,10 +89,7 @@ $scope.setFiles = function(element) {
         
       
       $scope.fileData=[];
-      $scope.settingsList = [
-      { text: "個資聲明", checked: false }
-      ];
-
+      
       $scope.activityModel = {
       "Name": ""
       , "Telephone": ""
@@ -155,7 +152,9 @@ $scope.setFiles = function(element) {
           <span class="input-label"><span style="color:red">*</span>發票上傳</span>
           <!--<input type="file" ng-model="fileData"/>-->
 
+		  <!--
           <input type="file" ng-model-instant id="fileToUpload" onchange="angular.element(this).scope().setFiles(this)" />
+		  -->
         </label>
 
 
