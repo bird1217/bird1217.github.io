@@ -18,15 +18,18 @@
     <title>Toggles</title>
     <link href="https://code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet" />
     <link href="ionic-datepicker.styles.css" rel="stylesheet" />
-    <script src="https://code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
-    <script src="https://rajeshwarpatlolla.github.io/DatePickerForIonicFramework/demo/lib/ionic-datepicker/dist/ionic-datepicker.bundle.min.js"></script>
 
+
+    <!--<script src="https://code.ionicframework.com/nightly/js/ionic.bundle.js"></script>-->
+    <script src="http://www.runoob.com/static/ionic/js/ionic.bundle.min.js"></script>
+
+    <script src="https://rajeshwarpatlolla.github.io/DatePickerForIonicFramework/demo/lib/ionic-datepicker/dist/ionic-datepicker.bundle.min.js"></script>   
 
 
     <script>
       angular.module('ionicApp', ['ionic','ionic-datepicker'])
 
-      .controller('MainCtrl', function($scope,ionicDatePicker) {
+      .controller('MainCtrl', function($scope,ionicDatePicker,$ionicPopup) {
 
       $scope.selectedDate1=new Date();
 
@@ -69,6 +72,37 @@
       ionicDatePicker.openDatePicker(ipObj1);
       };
 
+
+$scope.setFiles = function(element) {
+    $scope.$apply(function(scope) {
+      console.log('files:', element.files);
+      // Turn the FileList object into an Array
+        $scope.fileData = []
+        for (var i = 0; i < element.files.length; i++) {
+          $scope.fileData.push(element.files[i])
+        }      
+      });
+    };
+
+
+ //  alert（警告） 对话框
+        $scope.showAlert = function() {
+var userData=$scope.activityModel;
+
+if(userData["InvoiceDate"]==null || $scope.fileData.length==0)
+{
+            var alertPopup = $ionicPopup.alert({
+            title: '系統提醒',
+            template: '請確認日期及照片已上傳'
+            });
+            alertPopup.then(function(res) {
+            
+            });
+
+            }
+        };
+      
+      $scope.fileData=[];
       $scope.settingsList = [
       { text: "個資聲明", checked: false }
       ];
@@ -133,7 +167,9 @@
 
             <label class="item item-input item-stacked-label">
           <span class="input-label"><span style="color:red">*</span>發票上傳</span>
-          <input type="file"/>
+          <!--<input type="file" ng-model="fileData"/>-->
+
+          <input type="file" ng-model-instant id="fileToUpload" onchange="angular.element(this).scope().setFiles(this)" />
         </label>
 
 
@@ -145,12 +181,17 @@
             </div>
 
             <div class="list">
-
-                <ion-toggle ng-repeat="item in settingsList" ng-model="activityModel.Aggremant" ng-checked="item.checked">
-                    {{ item.text }}
-                </ion-toggle>
-                <button class="button button-full button-positive" ng-disabled="!activityModel.Aggremant || testForm.$invalid">
-            參加抽獎
+<ul class="list">        
+        <li class="item item-checkbox">
+           <label class="checkbox">
+             <input type="checkbox" ng-model="activityModel.Aggremant">
+           </label>
+           個資聲明
+        </li>
+      </ul>                
+                <!--|| testForm.$invalid-->
+                <button class="button button-full button-positive" ng-disabled="!activityModel.Aggremant || testForm.$invalid" ng-click="showAlert()">
+            參加抽獎            
           </button>
             </div>
         </ion-content>
