@@ -4,16 +4,17 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 
-<style>
-.has-errors {
-    border-left: 3px solid #cc2511;
-    border-right: 3px solid #cc2511;
-}
-.no-errors {
-    border-left: 3px solid #3d8b3d;
-    border-right: 3px solid #3d8b3d;
-}
-</style>
+    <style>
+        .has-errors {
+            border-left: 3px solid #cc2511;
+            border-right: 3px solid #cc2511;
+        }
+        
+        .no-errors {
+            border-left: 3px solid #3d8b3d;
+            border-right: 3px solid #3d8b3d;
+        }
+    </style>
     <title>Toggles</title>
     <link href="https://code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
     <link href="ionic-datepicker.styles.css" rel="stylesheet">
@@ -80,7 +81,7 @@
 <body ng-controller="MainCtrl">
     <form name="testForm" novalidate>
         <ion-header-bar class="bar-positive">
-            <h1 class="title">DLINK 抽獎活動</h1>
+            <h1 class="title">D-Link 抽獎活動</h1>
         </ion-header-bar>
 
 
@@ -90,7 +91,7 @@
             <label class="item item-input">
     fdsf
   </label>
-            
+
 
             <div class="list">
                 <label class="item item-input item-stacked-label">
@@ -115,7 +116,7 @@
 
                 <label class="item item-input item-stacked-label">
     <span class="input-label">產品序號</span>
-    <input type="text" placeholder="Dlink Wifi" ng-model="activityModel.Location">
+    <input type="text" placeholder="D-Link Wifi" ng-model="activityModel.Location">
   </label>
 
                 <label class="item item-input item-stacked-label">
@@ -136,15 +137,22 @@
             <i class="icon ion-calendar"></i>{{ activityModel.InvoiceDate | date :  "yyyy/MM/dd" }}            
         </a>
                 </div>
-            </div>
-            <ion-toggle ng-repeat="item in settingsList" ng-model="activityModel.Aggremant" ng-checked="item.checked">
+
+                <div class="list">
+
+                <ion-toggle ng-repeat="item in settingsList" ng-model="activityModel.Aggremant" ng-checked="item.checked">
                 {{ item.text }}
             </ion-toggle>
+            <button class="button button-full button-positive" ng-disabled="!activityModel.Aggremant || testForm.Name.$invalid">
+  參加抽獎
+</button>                </div>
+
+            </div>
+            
+
 
         </div>
-        <button class="button button-full button-positive" ng-disabled="!activityModel.Aggremant || testForm.Name.$invalid">
-  參加抽獎
-</button>
+
     </form>
 </body>
 
