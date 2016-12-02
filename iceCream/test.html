@@ -55,37 +55,37 @@
       };
 
       $scope.openDatePicker = function(){
-      var currentDate=$scope.activityModel["InvoiceDate"];
-
-
-
-      //ipObj1["titleLabel"]='購買日期';
-      if(currentDate!=null)
-      {
-        ipObj1["inputDate"]=currentDate;
-      }
-      else
-      {
-          ipObj1["inputDate"]=new Date();
-      }
-      ionicDatePicker.openDatePicker(ipObj1);
+		  var currentDate=$scope.activityModel["InvoiceDate"];
+		  //ipObj1["titleLabel"]='購買日期';
+		  if(currentDate!=null)
+		  {
+			ipObj1["inputDate"]=currentDate;
+		  }
+		  else
+		  {
+			  ipObj1["inputDate"]=new Date();
+		  }
+		  ionicDatePicker.openDatePicker(ipObj1);
       };
 
 
-$scope.setFiles = function(element) {
-    $scope.$apply(function(scope) {
-      
-      // Turn the FileList object into an Array
-        $scope.fileData = []
-        for (var i = 0; i < element.files.length; i++) {
-          $scope.fileData.push(element.files[i])
-        }      
-      });
+	$scope.setFiles = function(element) {
+		$scope.$apply(function(scope) {
+		  
+		  // Turn the FileList object into an Array
+			$scope.fileData = []
+			for (var i = 0; i < element.files.length; i++) {
+			  $scope.fileData.push(element.files[i])
+			}      
+		  });
     };
 
 
  //  alert（警告） 对话框
-        
+$scope.save = function() {
+		
+		alert('save complete');
+    };        
       
       $scope.fileData=[];
       
@@ -149,8 +149,7 @@ $scope.setFiles = function(element) {
 
             <label class="item item-input item-stacked-label">
           <span class="input-label"><span style="color:red">*</span>發票上傳</span>
-          <!--<input type="file" ng-model="fileData"/>-->
-		  {{fileData.length}}
+          <!--<input type="file" ng-model="fileData"/>-->		  
           <input type="file" ng-model-instant id="fileToUpload" onchange="angular.element(this).scope().setFiles(this)" />		  
         </label>
 
@@ -171,8 +170,8 @@ $scope.setFiles = function(element) {
            個資聲明
         </li>
       </ul>                
-                <!--|| testForm.$invalid ng-click="showAlert()"-->
-                <button class="button button-full button-positive" ng-disabled="!activityModel.Aggremant || testForm.$invalid" >
+                <!--|| testForm.$invalid ng-click="save()"-->
+                <button class="button button-full button-positive" ng-click="save()" ng-disabled="!activityModel.Aggremant || testForm.$invalid" >
             參加抽獎            
           </button>
             </div>
