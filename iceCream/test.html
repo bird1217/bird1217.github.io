@@ -74,7 +74,7 @@
 
 $scope.setFiles = function(element) {
     $scope.$apply(function(scope) {
-      console.log('files:', element.files);
+      
       // Turn the FileList object into an Array
         $scope.fileData = []
         for (var i = 0; i < element.files.length; i++) {
@@ -150,10 +150,8 @@ $scope.setFiles = function(element) {
             <label class="item item-input item-stacked-label">
           <span class="input-label"><span style="color:red">*</span>發票上傳</span>
           <!--<input type="file" ng-model="fileData"/>-->
-
-		  <!--
-          <input type="file" ng-model-instant id="fileToUpload" onchange="angular.element(this).scope().setFiles(this)" />
-		  -->
+		  {{fileData.length}}
+          <input type="file" ng-model-instant id="fileToUpload" onchange="angular.element(this).scope().setFiles(this)" />		  
         </label>
 
 
