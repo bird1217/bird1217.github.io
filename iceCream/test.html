@@ -1,8 +1,8 @@
 <html ng-app="ionicApp">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
 
     <style>
         .has-errors {
@@ -16,27 +16,27 @@
         }
     </style>
     <title>Toggles</title>
-    <link href="https://code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
-    <link href="ionic-datepicker.styles.css" rel="stylesheet">
+    <link href="https://code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet" />
+    <link href="ionic-datepicker.styles.css" rel="stylesheet" />
     <script src="https://code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
     <script src="https://rajeshwarpatlolla.github.io/DatePickerForIonicFramework/demo/lib/ionic-datepicker/dist/ionic-datepicker.bundle.min.js"></script>
 
 
 
     <script>
-    angular.module('ionicApp', ['ionic','ionic-datepicker'])
+      angular.module('ionicApp', ['ionic','ionic-datepicker'])
 
-.controller('MainCtrl', function($scope,ionicDatePicker) {
+      .controller('MainCtrl', function($scope,ionicDatePicker) {
 
-  $scope.selectedDate1=new Date();
+      $scope.selectedDate1=new Date();
 
-  var ipObj1 = {
-      callback: function (val) {  //Mandatory		
-		var selectDate = new Date(val);				
-		$scope.activityModel["InvoiceDate"] = selectDate;		
+      var ipObj1 = {
+      callback: function (val) {  //Mandatory
+      var selectDate = new Date(val);
+      $scope.activityModel["InvoiceDate"] = selectDate;
       },
       disabledDates: [            //Optional
-        
+
       ],
       from: new Date(2012, 1, 1), //Optional
       //to: new Date(2016, 10, 30), //Optional
@@ -45,95 +45,103 @@
       //disableWeekdays: [0],       //Optional
       closeOnSelect: false,       //Optional
       templateType: 'popup',       //Optional
-	  dateFormat: 'yyyy/MM/dd',
-      
+      dateFormat: 'yyyy/MM/dd',
+
       todayLabel: 'Today',
-      titleLabel:'購買日期'      
+      titleLabel:'購買日期'
 
-    };
+      };
 
-    $scope.openDatePicker = function(){
+      $scope.openDatePicker = function(){
       var currentDate=$scope.activityModel["InvoiceDate"];
-	  //ipObj1["titleLabel"]='購買日期';
-	  ipObj1["inputDate"]=currentDate;
-	  
-	  ionicDatePicker.openDatePicker(ipObj1);
-    };
-  
-  $scope.settingsList = [
-    { text: "個資聲明", checked: false }
-  ];
 
-  $scope.activityModel = {
-            "Name": ""
-            , "Telephone": ""
-            , "Email": ""
-            , "ProductType": ""
-            , "ProductSerial": ""
-            , "InvoiceDate": new Date()
-            , "Location": ""
-            , "Aggremant": false    
-        };
-});
+
+
+      //ipObj1["titleLabel"]='購買日期';
+      if(currentDate!=null)
+      {
+        ipObj1["inputDate"]=currentDate;
+      }
+      else
+      {
+          ipObj1["inputDate"]=new Date();
+      }
+      ionicDatePicker.openDatePicker(ipObj1);
+      };
+
+      $scope.settingsList = [
+      { text: "個資聲明", checked: false }
+      ];
+
+      $scope.activityModel = {
+      "Name": ""
+      , "Telephone": ""
+      , "Email": ""
+      , "ProductType": ""
+      , "ProductSerial": ""
+      , "InvoiceDate": null
+      , "Location": ""
+      , "Aggremant": false
+      };
+      });
     </script>
 </head>
 
 <body ng-controller="MainCtrl">
     <form name="testForm" novalidate>
         <ion-header-bar class="bar-positive">
-            <h1 class="title">DLINK 抽獎活動</h1>
+            <h1 class="title">D-Link 抽獎活動</h1>
         </ion-header-bar>
 
-
-
-
-
-<ion-content>
-        
+        <ion-content>
+            <label class="item item-input item-stacked-label">
+          <span  class="input-label">
+              <span style="color:red">*</span>
+              姓名</span>
+          <span ng-show="testForm.Name.$touched && testForm.Name.$invalid" style="color:red;" class="input-label">
+              [姓名] 不可為空 (長度限制30)
+          </span>  
+          <input type="text" name="Name" placeholder="John" ng-model="activityModel.Name" ng-required="true" ng-maxlength="30" />
+        </label>
+            <label class="item item-input item-stacked-label">
+          <span class="input-label">電話</span>
+          <input type="text" placeholder="09xx-xxx-xxx" ng-model="activityModel.Telephone"/>
+        </label>
+            <label class="item item-input item-stacked-label">
+          <span class="input-label">Email</span>
+          <input type="email" placeholder="john@suhr.com" ng-model="activityModel.Email"/>
+        </label>
+            <label class="item item-input item-stacked-label">
+          <span class="input-label"><span style="color:red">*</span>產品型號</span>
+          <span ng-show="testForm.ProductType.$touched && testForm.ProductType.$invalid" style="color:red;">
+              [產品型號] 不可為空 (長度限制30)
+          </span>
+          <input type="text" placeholder="xxxx-xxxx-xxxx-xxxx" name="ProductType" ng-model="activityModel.ProductType" ng-required="true" ng-maxlength="30" />
+        </label>
+            <label class="item item-input item-stacked-label">
+          <span class="input-label"><span style="color:red">*</span>產品序號</span>
+          <span ng-show="testForm.ProductSerial.$touched && testForm.ProductSerial.$invalid" style="color:red;">
+              [產品序號] 不可為空 (長度限制30)
+          </span>
+          <input type="text" placeholder="D-Link Wifi" name="ProductSerial"  ng-model="activityModel.ProductSerial" ng-required="true" ng-maxlength="30" />
+        </label>
+            <label class="item item-input item-stacked-label">
+          <span class="input-label">購買地點</span>
+          <input type="text" placeholder="購買商家" ng-model="activityModel.Location"/>
+        </label>
 
 
             <label class="item item-input item-stacked-label">
-    
-    <span class="input-label">姓名</span>
-    <input type="text" name="Name" placeholder="John" ng-model="activityModel.Name" ng-required="true" style="border-color: #ff0000 #0000ff;">
-  </label>
-            <label class="item item-input item-stacked-label">
-    <span class="input-label">電話</span>
-    <input type="text" placeholder="09xx-xxx-xxx" ng-model="activityModel.Telephone">
-  </label>
-            <label class="item item-input item-stacked-label">
-    <span class="input-label">Email</span>
-    <input type="email" placeholder="john@suhr.com" ng-model="activityModel.Email">
-  </label>
-
-            <label class="item item-input item-stacked-label">
-    <span class="input-label">產品型號</span>
-    <input type="text" placeholder="xxxx-xxxx-xxxx-xxxx" ng-model="activityModel.ProductType">
-  </label>
-
-
-            <label class="item item-input item-stacked-label">
-    <span class="input-label">產品序號</span>
-    <input type="text" placeholder="Dlink Wifi" ng-model="activityModel.Location">
-  </label>
-
-            <label class="item item-input item-stacked-label">
-    <span class="input-label">購買地點</span>
-    <input type="text" placeholder="購買商家" ng-model="activityModel.Location">
-  </label>
-
-
-            <label class="item item-input item-stacked-label">
-              <span class="input-label">發票上傳</span>
-              <input type="file">
-            </label>
+          <span class="input-label"><span style="color:red">*</span>發票上傳</span>
+          <input type="file"/>
+        </label>
 
 
             <div class="list">
                 <a class="item item-icon-right" ng-click="openDatePicker()">
-            購買日期
-            <i class="icon ion-calendar"></i>{{ activityModel.InvoiceDate | date :  "yyyy/MM/dd" }}            
-        </a>
+                    <span style="color:red">*</span>購買日期
+                    <i class="icon ion-calendar"></i>{{ activityModel.InvoiceDate | date : "yyyy/MM/dd" }}
+                </a>
             </div>
 
             <div class="list">
@@ -141,13 +149,11 @@
                 <ion-toggle ng-repeat="item in settingsList" ng-model="activityModel.Aggremant" ng-checked="item.checked">
                     {{ item.text }}
                 </ion-toggle>
-                <button class="button button-full button-positive" ng-disabled="!activityModel.Aggremant || testForm.Name.$invalid">
-  參加抽獎
-</button> </div>
-
-        </div>
-
-</ion-content>
+                <button class="button button-full button-positive" ng-disabled="!activityModel.Aggremant || testForm.$invalid">
+            參加抽獎
+          </button>
+            </div>
+        </ion-content>
 
     </form>
 </body>
