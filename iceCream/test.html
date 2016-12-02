@@ -4,12 +4,22 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
 
+<style>
+.has-errors {
+    border-left: 3px solid #cc2511;
+    border-right: 3px solid #cc2511;
+}
+.no-errors {
+    border-left: 3px solid #3d8b3d;
+    border-right: 3px solid #3d8b3d;
+}
+</style>
     <title>Toggles</title>
     <link href="https://code.ionicframework.com/nightly/css/ionic.css" rel="stylesheet">
     <link href="ionic-datepicker.styles.css" rel="stylesheet">
     <script src="https://code.ionicframework.com/nightly/js/ionic.bundle.js"></script>
     <script src="https://rajeshwarpatlolla.github.io/DatePickerForIonicFramework/demo/lib/ionic-datepicker/dist/ionic-datepicker.bundle.min.js"></script>
-     
+
 
 
     <script>
@@ -50,7 +60,7 @@
     };
   
   $scope.settingsList = [
-    { text: "個資聲明", checked: true }
+    { text: "個資聲明", checked: false }
   ];
 
   $scope.activityModel = {
@@ -68,65 +78,74 @@
 </head>
 
 <body ng-controller="MainCtrl">
-
-    <ion-header-bar class="bar-positive">
-        <h1 class="title">DLINK 抽獎活動</h1>
-    </ion-header-bar>
-
-<ion-content>
-    <div class="list">
-
-        <label class="item item-input">
-              <span class="input-label">姓名</span>
-              <input type="text" ng-model="activityModel.Name">
-            </label>
-
-        <label class="item item-input">
-              <span class="input-label">電話</span>
-              <input type="text" ng-model="activityModel.Telephone">
-            </label>
-
-        <label class="item item-input">
-              <span class="input-label">Email</span>
-              <input type="email" ng-model="activityModel.Email">
-            </label>
-
-        <label class="item item-input">
-              <span class="input-label">產品型號</span>
-              <input type="text" ng-model="activityModel.ProductType">
-            </label>
-
-        <label class="item item-input">
-              <span class="input-label">產品序號</span>
-              <input type="text" ng-model="activityModel.Location">
-            </label>
+    <form name="testForm" novalidate>
+        <ion-header-bar class="bar-positive">
+            <h1 class="title">DLINK 抽獎活動</h1>
+        </ion-header-bar>
 
 
-        <label class="item item-input">
-              <span class="input-label">購買地點</span>
-              <input type="text" ng-model="activityModel.ProductSerial">
-            </label>
+
 
         <div class="list">
-            <a class="item item-icon-right" ng-click="openDatePicker()">
-            購買日期
-            <i class="icon ion-calendar"></i>{{ activityModel.InvoiceDate | date :  "yyyy/MM/dd" }}            
-            </a>
-        </div>
+            <label class="item item-input">
+    fdsf
+  </label>
+            
+
+            <div class="list">
+                <label class="item item-input item-stacked-label">
+    
+    <span class="input-label">姓名</span>
+    <input type="text" name="Name" placeholder="John" ng-model="activityModel.Name" ng-required="true" style="border-color: #ff0000 #0000ff;">
+  </label>
+                <label class="item item-input item-stacked-label">
+    <span class="input-label">電話</span>
+    <input type="text" placeholder="09xx-xxx-xxx" ng-model="activityModel.Telephone">
+  </label>
+                <label class="item item-input item-stacked-label">
+    <span class="input-label">Email</span>
+    <input type="email" placeholder="john@suhr.com" ng-model="activityModel.Email">
+  </label>
+
+                <label class="item item-input item-stacked-label">
+    <span class="input-label">產品型號</span>
+    <input type="text" placeholder="xxxx-xxxx-xxxx-xxxx" ng-model="activityModel.ProductType">
+  </label>
 
 
-        <ion-toggle ng-repeat="item in settingsList" ng-model="item.checked" ng-checked="item.checked">
-            {{ item.text }}
-        </ion-toggle>
+                <label class="item item-input item-stacked-label">
+    <span class="input-label">產品序號</span>
+    <input type="text" placeholder="Dlink Wifi" ng-model="activityModel.Location">
+  </label>
 
-        <label class="item item-input">
-              <span class="input-label">購買地點</span>
-              <input type="file" ng-model="activityModel.ProductSerial">
+                <label class="item item-input item-stacked-label">
+    <span class="input-label">購買地點</span>
+    <input type="text" placeholder="購買商家" ng-model="activityModel.Location">
+  </label>
+
+
+                <label class="item item-input item-stacked-label">
+              <span class="input-label">發票上傳</span>
+              <input type="file">
             </label>
 
 
-        </ion-content>
+                <div class="list">
+                    <a class="item item-icon-right" ng-click="openDatePicker()">
+            購買日期
+            <i class="icon ion-calendar"></i>{{ activityModel.InvoiceDate | date :  "yyyy/MM/dd" }}            
+        </a>
+                </div>
+            </div>
+            <ion-toggle ng-repeat="item in settingsList" ng-model="activityModel.Aggremant" ng-checked="item.checked">
+                {{ item.text }}
+            </ion-toggle>
 
+        </div>
+        <button class="button button-full button-positive" ng-disabled="!activityModel.Aggremant || testForm.Name.$invalid">
+  參加抽獎
+</button>
+    </form>
 </body>
 
 </html>
