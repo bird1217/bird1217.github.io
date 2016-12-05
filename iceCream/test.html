@@ -28,7 +28,7 @@
     <script>
       angular.module('ionicApp', ['ionic','ionic-datepicker'])
 
-      .controller('MainCtrl', function($scope,ionicDatePicker) {
+      .controller('MainCtrl', function($scope,ionicDatePicker,$timeout) {
 
       $scope.selectedDate1=new Date();
 
@@ -83,8 +83,32 @@
 
  //  alert（警告） 对话框
 $scope.save = function() {
+		var userData=$scope.activityModel;
+
+		if(userData["InvoiceDate"]==null || $scope.fileData.length==0)
+		{
+			alert('請確認日期及照片已上傳.');
+		}
+		else
+		{
+			// Setup the loader
+		  $ionicLoading.show({
+			content: 'Loading',
+			animation: 'fade-in',
+			showBackdrop: true,
+			maxWidth: 200,
+			showDelay: 0
+		  });
+		  
+		  // Set a timeout to clear loader, however you would actually call the $ionicLoading.hide(); method whenever everything is ready or loaded.
+		  $timeout(function () {
+			$ionicLoading.hide();			
+			alert('活動參加成功.');
+		  }, 3000);
+		}
 		
-		alert('save complete');
+		
+		
     };        
       
       $scope.fileData=[];
