@@ -30,22 +30,7 @@
 
       .controller('MainCtrl', function($scope,ionicDatePicker,$timeout,$ionicLoading) {
 
-	  
-	  // Setup the loader
-		  $ionicLoading.show({
-			content: 'Loading',
-			animation: 'fade-in',
-			showBackdrop: true,
-			maxWidth: 200,
-			showDelay: 0
-		  });
-		  
-		  // Set a timeout to clear loader, however you would actually call the $ionicLoading.hide(); method whenever everything is ready or loaded.
-		  $timeout(function () {
-			$ionicLoading.hide();
-			$scope.stooges = [{name: 'Moe'}, {name: 'Larry'}, {name: 'Curly'}];
-		  }, 2000);
-	  
+
       $scope.selectedDate1=new Date();
 
       var ipObj1 = {
@@ -107,24 +92,8 @@ $scope.save = function() {
 		}
 		else
 		{
-			// Setup the loader
-		  $ionicLoading.show({
-			content: 'Loading',
-			animation: 'fade-in',
-			showBackdrop: true,
-			maxWidth: 200,
-			showDelay: 0
-		  });
-		  
-		  // Set a timeout to clear loader, however you would actually call the $ionicLoading.hide(); method whenever everything is ready or loaded.
-		  $timeout(function () {
-			$ionicLoading.hide();			
-			alert('活動參加成功.');
-		  }, 3000);
+			alert('參加活動成功');
 		}
-		
-		
-		
     };        
       
       $scope.fileData=[];
