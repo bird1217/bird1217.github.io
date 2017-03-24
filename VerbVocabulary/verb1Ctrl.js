@@ -1,4 +1,4 @@
-ï»¿angular.module('ionicApp')
+angular.module('ionicApp')
 	.controller('verb1Ctrl', function($scope) {
 		
 		var getRandomInt=function(min, max){
@@ -49,7 +49,7 @@
 					});
 					  
 					setTimeout(function(){ 
-						angular.element(document.querySelector('#txtEnglish1').focus()); 
+						angular.element(document.querySelector('#txtEnglish').focus()); 
 					}, 1);		  
 					if(exist.length==0){
 					$scope.finishFlag=true;
@@ -65,105 +65,105 @@
 		$scope.displaySetting='eg';
 		
 		
-		$scope.vocabulary2 = [{"number":1,"eg":"answer","ch":"æ‡‰ç­”.å›ç­”","txtEnglish":"","txtChinese":"","randomFlag":false}];
-		$scope.vocabulary = [{"number":1,"eg":"answer","ch":"æ‡‰ç­”.å›ç­”","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":2,"eg":"arrive","ch":"åˆ°é”","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":3,"eg":"ask","ch":"è¦æ±‚.å•","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":4,"eg":"become","ch":"è®Šæˆ.æˆç‚º","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":5,"eg":"begin","ch":"é–‹å§‹","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":6,"eg":"believe","ch":"ç›¸ä¿¡","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":7,"eg":"break","ch":"ç ´è£‚.åˆ†æ‰‹","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":8,"eg":"bring","ch":"å¸¶ä¾†","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":9,"eg":"build","ch":"å»ºé€ ","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":10,"eg":"buy","ch":"è³¼è²·","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":11,"eg":"call","ch":"å‘¼å«.æ‰“é›»è©±","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":12,"eg":"carry","ch":"æ”œå¸¶","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":13,"eg":"catch","ch":"æ•æ‰","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":14,"eg":"change","ch":"æ”¹è®Š","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":15,"eg":"close","ch":"é—œé–‰","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":16,"eg":"come","ch":"ä¾†","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":17,"eg":"continue","ch":"ç¹¼çºŒ","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":18,"eg":"cost","ch":"è€—è²»","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":19,"eg":"cry","ch":"å“­æ³£","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":20,"eg":"cut","ch":"åˆ‡å‰²","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":21,"eg":"die","ch":"æ­»äº¡","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":22,"eg":"do","ch":"åš","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":23,"eg":"drink","ch":"å–","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":24,"eg":"eat","ch":"åƒ","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":25,"eg":"end","ch":"çµæŸ","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":26,"eg":"enter","ch":"é€²å…¥","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":27,"eg":"explain","ch":"è§£é‡‹","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":28,"eg":"fall","ch":"æ‰è½","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":29,"eg":"feel","ch":"æ„Ÿè¦º","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":30,"eg":"fight","ch":"çˆ­åŸ·.æ‰“é¬¥","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":31,"eg":"find","ch":"ç™¼ç¾","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":32,"eg":"finish","ch":"å®Œæˆ","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":33,"eg":"fix","ch":"ä¿®ç†","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":34,"eg":"get","ch":"å¾—åˆ°","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":35,"eg":"give","ch":"çµ¦äºˆ","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":36,"eg":"go","ch":"å»","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":37,"eg":"grow","ch":"æˆé•·","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":38,"eg":"happen","ch":"ç™¼ç”Ÿ","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":39,"eg":"have","ch":"æ“æœ‰","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":40,"eg":"hear","ch":"è½åˆ°","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":41,"eg":"help","ch":"å”åŠ©","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":42,"eg":"hold","ch":"ä¿æŒ.æ”¯æ’","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":43,"eg":"hope","ch":"å¸Œæœ›","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":44,"eg":"hurt","ch":"å‚·å®³","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":45,"eg":"interest","ch":"è®“äººæ„Ÿèˆˆè¶£","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":46,"eg":"keep","ch":"ç¹¼çºŒ.ç¶­æŒ","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":47,"eg":"know","ch":"çŸ¥é“.èªè­˜","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":48,"eg":"launch","ch":"ç™¼å°„.ç™¼å‹•","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":49,"eg":"learn","ch":"å­¸ç¿’.å¾—çŸ¥","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":50,"eg":"leave","ch":"é›¢é–‹.ç•™ä¸‹","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":51,"eg":"let","ch":"è®“.ä½¿","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":52,"eg":"like","ch":"å–œæ­¡","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":53,"eg":"listen","ch":"å‚¾è½","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":54,"eg":"live","ch":"ç”Ÿæ´»","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":55,"eg":"look","ch":"çœ‹èµ·ä¾†","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":56,"eg":"lose","ch":"éºå¤±.å–ªå¤±","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":57,"eg":"love","ch":"æ„›","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":58,"eg":"make","ch":"é€ æˆ.é”æˆ","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":59,"eg":"mean","ch":"è¡¨é”.æ„å‘³è‘—","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":60,"eg":"meet","ch":"è¦‹é¢.ç¬¦åˆ","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":61,"eg":"move","ch":"é·ç§»","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":62,"eg":"need","ch":"éœ€è¦","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":63,"eg":"open","ch":"æ‰“é–‹.é–‹æ”¾","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":64,"eg":"pay","ch":"ä»˜å‡º","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":65,"eg":"plan","ch":"è¨ˆç•«","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":66,"eg":"put","ch":"æ”¾ç½®","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":67,"eg":"rain","ch":"ä¸‹é›¨","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":68,"eg":"read","ch":"é–±è®€","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":69,"eg":"ride","ch":"é¨.ä¹˜","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":70,"eg":"run","ch":"ç¶“ç‡Ÿ.è·‘æ­¥","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":71,"eg":"say","ch":"èªª","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":72,"eg":"see","ch":"çœ‹è¦‹.æ˜ç™½","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":73,"eg":"sell","ch":"éŠ·å”®","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":74,"eg":"send","ch":"é€å‡º","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":75,"eg":"sit","ch":"åè‘—","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":76,"eg":"sleep","ch":"ç¡è¦º","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":77,"eg":"speak","ch":"èªªè©±","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":78,"eg":"stand","ch":"ç«™è‘—","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":79,"eg":"start","ch":"é–‹å§‹","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":80,"eg":"stay","ch":"åœç•™.é€—ç•™","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":81,"eg":"stop","ch":"åœæ­¢","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":82,"eg":"study","ch":"ç ”ä¿®.ç ”è®€","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":83,"eg":"take","ch":"å–å¾—.æ‹¿åˆ°","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":84,"eg":"talk","ch":"èªªè©±.äº¤è«‡","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":85,"eg":"teach","ch":"æ•™å­¸.æ•™å°","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":86,"eg":"tell","ch":"å‘Šè¨´.è¾¨åˆ¥","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":87,"eg":"think","ch":"æƒ³.èªç‚º","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":88,"eg":"touch","ch":"æ¥è§¸","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":89,"eg":"try","ch":"å˜—è©¦","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":90,"eg":"turn","ch":"ç¿»è½‰","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":91,"eg":"use","ch":"ä½¿ç”¨","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":92,"eg":"wake","ch":"ç”¦é†’","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":93,"eg":"walk","ch":"èµ°è·¯","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":94,"eg":"want","ch":"æƒ³è¦","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":95,"eg":"wash","ch":"æ´—æ»Œ","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":96,"eg":"work","ch":"å·¥ä½œ","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":97,"eg":"write","ch":"æ›¸å¯«","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":98,"eg":"understand","ch":"ç†è§£","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":99,"eg":"visit","ch":"æ‹œè¨ª","txtEnglish":"","txtChinese":"","randomFlag":false}
-					,{"number":100,"eg":"wrap","ch":"åŒ…è£.çºç¹","txtEnglish":"","txtChinese":"","randomFlag":false}];		
+		$scope.vocabulary2 = [{"number":1,"eg":"answer","ch":"À³µª.¦^µª","txtEnglish":"","txtChinese":"","randomFlag":false}];
+		$scope.vocabulary = [{"number":1,"eg":"answer","ch":"À³µª.¦^µª","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":2,"eg":"arrive","ch":"¨ì¹F","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":3,"eg":"ask","ch":"­n¨D.°İ","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":4,"eg":"become","ch":"ÅÜ¦¨.¦¨¬°","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":5,"eg":"begin","ch":"¶}©l","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":6,"eg":"believe","ch":"¬Û«H","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":7,"eg":"break","ch":"¯}µõ.¤À¤â","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":8,"eg":"bring","ch":"±a¨Ó","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":9,"eg":"build","ch":"«Ø³y","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":10,"eg":"buy","ch":"ÁÊ¶R","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":11,"eg":"call","ch":"©I¥s.¥´¹q¸Ü","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":12,"eg":"carry","ch":"Äâ±a","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":13,"eg":"catch","ch":"®·®»","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":14,"eg":"change","ch":"§ïÅÜ","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":15,"eg":"close","ch":"Ãö³¬","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":16,"eg":"come","ch":"¨Ó","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":17,"eg":"continue","ch":"Ä~Äò","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":18,"eg":"cost","ch":"¯Ó¶O","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":19,"eg":"cry","ch":"­úª_","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":20,"eg":"cut","ch":"¤Á³Î","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":21,"eg":"die","ch":"¦º¤`","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":22,"eg":"do","ch":"°µ","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":23,"eg":"drink","ch":"³Ü","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":24,"eg":"eat","ch":"¦Y","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":25,"eg":"end","ch":"µ²§ô","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":26,"eg":"enter","ch":"¶i¤J","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":27,"eg":"explain","ch":"¸ÑÄÀ","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":28,"eg":"fall","ch":"±¼¸¨","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":29,"eg":"feel","ch":"·PÄ±","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":30,"eg":"fight","ch":"ª§°õ.¥´°«","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":31,"eg":"find","ch":"µo²{","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":32,"eg":"finish","ch":"§¹¦¨","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":33,"eg":"fix","ch":"­×²z","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":34,"eg":"get","ch":"±o¨ì","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":35,"eg":"give","ch":"µ¹¤©","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":36,"eg":"go","ch":"¥h","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":37,"eg":"grow","ch":"¦¨ªø","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":38,"eg":"happen","ch":"µo¥Í","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":39,"eg":"have","ch":"¾Ö¦³","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":40,"eg":"hear","ch":"Å¥¨ì","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":41,"eg":"help","ch":"¨ó§U","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":42,"eg":"hold","ch":"«O«ù.¤ä¼µ","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":43,"eg":"hope","ch":"§Æ±æ","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":44,"eg":"hurt","ch":"¶Ë®`","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":45,"eg":"interest","ch":"Åı¤H·P¿³½ì","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":46,"eg":"keep","ch":"Ä~Äò.ºû«ù","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":47,"eg":"know","ch":"ª¾¹D.»{ÃÑ","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":48,"eg":"launch","ch":"µo®g.µo°Ê","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":49,"eg":"learn","ch":"¾Ç²ß.±oª¾","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":50,"eg":"leave","ch":"Â÷¶}.¯d¤U","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":51,"eg":"let","ch":"Åı.¨Ï","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":52,"eg":"like","ch":"³ßÅw","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":53,"eg":"listen","ch":"¶ÉÅ¥","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":54,"eg":"live","ch":"¥Í¬¡","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":55,"eg":"look","ch":"¬İ°_¨Ó","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":56,"eg":"lose","ch":"¿ò¥¢.³à¥¢","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":57,"eg":"love","ch":"·R","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":58,"eg":"make","ch":"³y¦¨.¹F¦¨","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":59,"eg":"mean","ch":"ªí¹F.·N¨ıµÛ","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":60,"eg":"meet","ch":"¨£­±.²Å¦X","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":61,"eg":"move","ch":"¾E²¾","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":62,"eg":"need","ch":"»İ­n","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":63,"eg":"open","ch":"¥´¶}.¶}©ñ","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":64,"eg":"pay","ch":"¥I¥X","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":65,"eg":"plan","ch":"­pµe","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":66,"eg":"put","ch":"©ñ¸m","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":67,"eg":"rain","ch":"¤U«B","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":68,"eg":"read","ch":"¾\Åª","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":69,"eg":"ride","ch":"ÃM.­¼","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":70,"eg":"run","ch":"¸gÀç.¶]¨B","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":71,"eg":"say","ch":"»¡","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":72,"eg":"see","ch":"¬İ¨£.©ú¥Õ","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":73,"eg":"sell","ch":"¾P°â","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":74,"eg":"send","ch":"°e¥X","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":75,"eg":"sit","ch":"§¤µÛ","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":76,"eg":"sleep","ch":"ºÎÄ±","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":77,"eg":"speak","ch":"»¡¸Ü","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":78,"eg":"stand","ch":"¯¸µÛ","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":79,"eg":"start","ch":"¶}©l","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":80,"eg":"stay","ch":"°±¯d.³r¯d","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":81,"eg":"stop","ch":"°±¤î","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":82,"eg":"study","ch":"¬ã­×.¬ãÅª","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":83,"eg":"take","ch":"¨ú±o.®³¨ì","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":84,"eg":"talk","ch":"»¡¸Ü.¥æ½Í","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":85,"eg":"teach","ch":"±Ğ¾Ç.±Ğ¾É","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":86,"eg":"tell","ch":"§i¶D.¿ë§O","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":87,"eg":"think","ch":"·Q.»{¬°","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":88,"eg":"touch","ch":"±µÄ²","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":89,"eg":"try","ch":"¹Á¸Õ","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":90,"eg":"turn","ch":"Â½Âà","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":91,"eg":"use","ch":"¨Ï¥Î","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":92,"eg":"wake","ch":"µd¿ô","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":93,"eg":"walk","ch":"¨«¸ô","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":94,"eg":"want","ch":"·Q­n","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":95,"eg":"wash","ch":"¬~º°","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":96,"eg":"work","ch":"¤u§@","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":97,"eg":"write","ch":"®Ñ¼g","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":98,"eg":"understand","ch":"²z¸Ñ","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":99,"eg":"visit","ch":"«ô³X","txtEnglish":"","txtChinese":"","randomFlag":false}
+					,{"number":100,"eg":"wrap","ch":"¥]¸Ë.ÄñÂ¶","txtEnglish":"","txtChinese":"","randomFlag":false}];		
 	});
