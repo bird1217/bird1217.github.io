@@ -1,16 +1,66 @@
 ﻿angular.module('ionicApp')
 	.controller('HomeTabCtrl', function($scope) {
-		
-	$scope.SearchModel={"Text":''}
 	
-	$scope.nextDictionary = function(){			
-		
-		$scope.SearchModel["Text"]='';		
-	};	
+	var getRandomInt=function(min, max){
+		    return Math.floor(Math.random() * (max - min + 1)) + min;
+		};
 
-	$scope.tttt='';
+	var chooseDictionary=function (){
+		    var randomIndex=getRandomInt($scope.randomStart,$scope.randomEnd);
+		    while($scope.chooseIndex.indexOf(randomIndex)!=-1)
+		    {
+		    	  randomIndex=getRandomInt($scope.randomStart,$scope.randomEnd);
+		    }
+		    $scope.chooseIndex.push(randomIndex);
+		    
+		    var randomTitle =  $scope.vocabulary.filter(function(item) {
+		    	return item.number == randomIndex
+				});
+		    randomTitle[0]["randomFlag"]=true;
+		    
+		    var currentTitle =  $scope.vocabulary.filter(function(item) {
+		    	return item.number == $scope.vocabulary2[0]["number"];
+				});
+		    
+		    if(currentTitle.length>0)
+		    {
+		    	currentTitle[0]["randomFlag"]=true;
+		    }
+		    
+		    if(randomTitle.length==0)
+		    {
+		    	return undefined;
+		    }
+		    else
+		    {
+		    	return randomTitle[0];
+		    }
+		};
+
+	$scope.nextDictionary = function(){
+		    var randomDictionary = chooseDictionary();	
+		    if(randomDictionary!=undefined){
+		    	//$scope.title2=randomTitle[0];
+		    	$scope.vocabulary2=[];
+		    	$scope.vocabulary2.push(randomDictionary);
+		    	$scope.showEnglish=false; 
+			    var exist =  $scope.vocabulary.filter(function(item) {
+			       return item["randomFlag"] == false;
+			    });
+			      
+			    setTimeout(function(){ 
+			    	angular.element(document.querySelector('#txtEnglish').focus()); 
+				}, 1);		  
+				if(exist.length==0){
+				$scope.finishFlag=true;
+				}
+		    }else{
+		    	alert('undefine');
+		    }
+	   	};
 
  	
+	$scope.vocabulary2=[{"number":1,"eg":"are","ch":"be動詞","txtEnglish":"","txtChinese":"","randomFlag":false}];
 	$scope.vocabulary = [{"number":1,"eg":"are","ch":"be動詞","txtEnglish":"","txtChinese":"","randomFlag":false}
 		,{"number":2,"eg":"was","ch":"be動詞","txtEnglish":"","txtChinese":"","randomFlag":false}
 		,{"number":3,"eg":"were","ch":"be動詞","txtEnglish":"","txtChinese":"","randomFlag":false}
@@ -162,23 +212,15 @@
 		,{"number":149,"eg":"clothes","ch":"衣服","txtEnglish":"","txtChinese":"","randomFlag":false}
 		,{"number":150,"eg":"only","ch":"只有","txtEnglish":"","txtChinese":"","randomFlag":false}];
 	
+	$scope.randomStart=1;
+	$scope.randomEnd=150;
+	
+	$scope.chooseIndex=[1];
+	$scope.finishFlag=false;	
+	
+	console.log('HomeTabCtrl');
+	$scope.displaySetting='eg';
 	
 	
-});
-
-
-angular.module('ionicApp')
-	.filter('numberFixedLen', function () {
-        return function (n, len) {
-            var num = parseInt(n, 10);
-            len = parseInt(len, 10);
-            if (isNaN(num) || isNaN(len)) {
-                return n;
-            }
-            num = '' + num;
-            while (num.length < len) {
-                num = '0' + num;
-            }
-            return num;
-        };
-    });
+})
+;
