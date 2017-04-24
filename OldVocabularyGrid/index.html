@@ -32,7 +32,7 @@
     <script id="templates/tabs.html" type="text/ng-template">
       <ion-tabs class="tabs-icon-top tabs-positive">
         
-        <ion-tab title="古英文查詢" icon="ion-document-text" href="#/tab/home">
+        <ion-tab title="古英文" icon="ion-document-text" href="#/tab/home">
           <ion-nav-view name="home-tab"></ion-nav-view>
         </ion-tab>
         
@@ -40,17 +40,23 @@
     </script>
 
     <script id="templates/home.html" type="text/ng-template">
-      <ion-view view-title="古英文">
+      <ion-view view-title="古英文查詢">
         <ion-content class="padding">          
           <div ng-repeat="dictionary in vocabulary2">
             <div class="card">                            
               <div class="list">                
-                <div class="item item-divider" style="color:red">                  
-				  <input type="text" placeholder="搜尋目標文字" ng-model="SearchModel.Text"/>
-				  <button class="button  button-positive button-small icon-right ion-chevron-right" ng-disabled="finishFlag" ng-click="nextDictionary()">
-                    清除目標
-                  </button>
-                </div>
+                
+				  <div class="item item-divider" style="color:red">                  										
+					<label class="item item-input">
+						<input type="text" placeholder="搜尋目標文字" ng-model="SearchModel.Text">
+					</label>
+					
+					<button class="button button-full button-positive" ng-click="nextDictionary()">
+						清除搜尋
+					</button>
+			
+				
+					</div>
               </div>			 			 
 			  <div class="list">
 
