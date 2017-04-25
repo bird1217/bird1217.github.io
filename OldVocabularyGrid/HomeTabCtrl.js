@@ -3,6 +3,12 @@
 		
 	$scope.nextDictionary = function(){
 		$scope["SearchModel"]["Text"]='';
+		//angular.element(document.querySelector('#modelText').focus()); 
+		
+		setTimeout(function()
+					{document.querySelector('#modelText').focus();}
+					,20
+		);
 	};
 
  	
