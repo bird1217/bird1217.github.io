@@ -5,7 +5,10 @@
 
     <title>Tabs Example</title>
     
-	<link href="https://code.ionicframework.com/nightly/css/ionic.min.css" rel="stylesheet" />
+	<!-- <link href="https://code.ionicframework.com/nightly/css/ionic.min.css" rel="stylesheet" /> -->
+    <!-- <script src="https://code.ionicframework.com/nightly/js/ionic.bundle.min.js"></script> -->
+	
+	<link href="https://code.ionicframework.com/nightly/css/ionic.min.css" rel="stylesheet" /> 
     <script src="https://code.ionicframework.com/nightly/js/ionic.bundle.min.js"></script>
 	
 	<!--
@@ -19,7 +22,7 @@
     <script src="HomeTabCtrl.js"></script>    
   </head>
 
-  <body>
+  <body ng-app="ionicApp">
 
     <ion-nav-bar class="bar-positive">
       <ion-nav-back-button>
@@ -33,7 +36,7 @@
       <ion-tabs class="tabs-icon-top tabs-positive">
         
         <ion-tab title="古英文" icon="ion-document-text" href="#/tab/home">
-          <ion-nav-view name="home-tab"></ion-nav-view>
+          <ion-nav-view></ion-nav-view>
         </ion-tab>
         
       </ion-tabs>
@@ -44,33 +47,46 @@
         <ion-content class="padding">          
           <div ng-repeat="dictionary in vocabulary2">
             <div class="card">                            
-              <div class="list">                
-                
+              <div class="list">                                
 				  <div class="item item-divider" style="color:red">                  										
 					<label class="item item-input">
 						<input type="text" id="modelText" placeholder="搜尋目標文字" ng-model="SearchModel.Text" />
-					</label>
-					
+					</label>					
 					<button class="button button-full button-positive" ng-click="nextDictionary()">
 						清除搜尋
 					</button>
-			
-				
-					</div>
+				  </div>
               </div>			 			 
 			  <div class="list">
-
-				  <a class="item" href="#" ng-repeat="data in vocabulary| filter:SearchModel.Text">      				    
+				  <a class="item" href="#tab/home2/{{data.number}}" ng-repeat="data in vocabulary| filter:SearchModel.Text">      				    
 					<h1>{{data.eg}}</h1>
 					<p style="color:red">字母順序:{{data.number |numberFixedLen:3}}</p>
 				  </a>
-			  </div>
-              
-            </div>
+			  </div>              
+            </div>								
           </div>
 
         </ion-content>
       </ion-view>
+	  
+	  <script id="templates/home2.html" type="text/ng-template">
+      <ion-view title="{{title}}">
+        <ion-content class="padding">
+							
+  
+  <div class="list">
+    <a class="item item-thumbnail-left" href="#">
+      <img src="star.jpg">
+	  <h1>{{vocabulary2[0].number}}</h1>
+      <h1>{{vocabulary2[0].eg}}</h1>
+      <h1>{{vocabulary2[0].ch}}</h1>
+    </a>   
+</div>
+  
+			
+        </ion-content>
+      </ion-view>
+
     </script>    
   </body>
 </html>
