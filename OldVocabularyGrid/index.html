@@ -60,8 +60,7 @@
               </div>			 			 
 			  <div class="list">
 
-				  <a class="item item-thumbnail-left" href="#" ng-repeat="data in vocabulary| filter:SearchModel.Text">      
-				    <img src="star.jpg"/>
+				  <a class="item" href="#" ng-repeat="data in vocabulary| filter:SearchModel.Text">      				    
 					<h1>{{data.eg}}</h1>
 					<p style="color:red">字母順序:{{data.number |numberFixedLen:3}}</p>
 				  </a>
