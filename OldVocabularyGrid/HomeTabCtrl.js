@@ -175,7 +175,7 @@
 	
 	$scope.SearchModel={"Text":"","Enable":false};
 })
-.controller('DetailTabCtrl', function($scope, $stateParams) {		
+.controller('DetailTabCtrl', function($scope, todo) {		
 	$scope.title="Detail word";
 	
 	
@@ -331,10 +331,8 @@
 		,{"number":150,"eg":"only","ch":"只有","txtEnglish":"","txtChinese":"","randomFlag":false}];
 	
 	$scope.vocabulary2 =  $scope.vocabulary.filter(function(item) {
-		    	return item.number == $stateParams["parentId"];
-	});
-	
-	
+		return item.number == todo;
+	});	
 });
 
 
@@ -353,3 +351,47 @@ angular.module('ionicApp')
             return num;
         };
     });
+	
+	
+	angular.module('ionicApp')
+	.service('TodosService', function($q) {
+  
+  //var todos = [ {title: "Do Laundry", done: true} ];
+
+  return {
+    todos: [
+      {
+        id: '1',
+        name: 'Pick up apples',
+        done: false
+      },
+      {
+        id: '2',
+        name: 'Mow the lawn',
+        done: true
+      },
+      {id: '3', name: "Take out the trash", done: true},
+      {id: '4', name: "Do laundry", done: false},
+      {id: '5', name: "Start cooking dinner", done: false}
+    ],
+    
+    //todos: todos,
+    //getTodo: function(todoId) { return todos[todoId] }
+
+    getTodos: function() {
+      return this.todos;
+    },
+    
+    getTodo: function(todoId) {
+      var dfd = $q.defer()
+      this.todos.forEach(function(todo) {
+        if (todo.id === todoId) dfd.resolve(todo)
+      })
+
+      return dfd.promise
+    }
+  }
+})
+	
+	
+	

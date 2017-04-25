@@ -35,7 +35,7 @@
     <script id="templates/tabs.html" type="text/ng-template">
       <ion-tabs class="tabs-icon-top tabs-positive">
         
-        <ion-tab title="古英文" icon="ion-document-text" href="#/tab/home">
+        <ion-tab title="古英文" icon="ion-document-text" ui-sref="tabs.home">
           <ion-nav-view></ion-nav-view>
         </ion-tab>
         
@@ -43,7 +43,7 @@
     </script>
 
     <script id="templates/home.html" type="text/ng-template">
-      <ion-view view-title="古英文查詢">
+      <ion-view title="List">
         <ion-content class="padding">          
           <div ng-repeat="dictionary in vocabulary2">
             <div class="card">                            
@@ -57,8 +57,8 @@
 					</button>
 				  </div>
               </div>			 			 
-			  <div class="list">
-				  <a class="item" href="#tab/home2/{{data.number}}" ng-repeat="data in vocabulary| filter:SearchModel.Text">      				    
+			  <div class="list">			  
+				  <a class="item" ui-sref="tabs.home2({todoId: data.number})" ng-repeat="data in vocabulary| filter:SearchModel.Text">      				    
 					<h1>{{data.eg}}</h1>
 					<p style="color:red">字母順序:{{data.number |numberFixedLen:3}}</p>
 				  </a>
@@ -68,9 +68,9 @@
 
         </ion-content>
       </ion-view>
-	  
+	  </script>    
 	  <script id="templates/home2.html" type="text/ng-template">
-      <ion-view title="{{title}}">
+      <ion-view title="Detail">
         <ion-content class="padding">
 							
   

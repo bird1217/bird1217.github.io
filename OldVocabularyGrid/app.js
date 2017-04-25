@@ -14,11 +14,13 @@
       controller: 'HomeTabCtrl'
     })
 	.state('tabs.home2', {
-      url: '/home2/:parentId',
+	  url: '/:todoId',
       templateUrl: 'templates/home2.html',
       controller: 'DetailTabCtrl',
 	  resolve: {		  
-		  
+		  todo: function($stateParams) {
+			return $stateParams.todoId
+		  }
 	  }
     });
 	
