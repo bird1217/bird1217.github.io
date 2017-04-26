@@ -3,23 +3,14 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width"/>
 
-    <title>Tabs Example</title>
-    
-	<!-- <link href="https://code.ionicframework.com/nightly/css/ionic.min.css" rel="stylesheet" /> -->
-    <!-- <script src="https://code.ionicframework.com/nightly/js/ionic.bundle.min.js"></script> -->
-	
+    <title>Tabs Example</title>    
 	<link href="https://code.ionicframework.com/nightly/css/ionic.min.css" rel="stylesheet" /> 
     <script src="https://code.ionicframework.com/nightly/js/ionic.bundle.min.js"></script>
-	
-	<!--
-	<link href="https://code.ionicframework.com/nightly/css/ionic.min.css" rel="stylesheet" />
-    <script src="https://code.ionicframework.com/nightly/js/ionic.bundle.min.js"></script>
-	<link href="ionic.min.css" rel="stylesheet" />
-    <script src="ionic.bundle.min.js"></script>
-	-->
     <script src="app.js"></script>
-
-    <script src="HomeTabCtrl.js"></script>    
+	<script src="Service/TodosService.js"></script>
+    <script src="Controler/HomeTabCtrl.js"></script>    
+	<script src="Controler/DetailTabCtrl.js"></script>    	
+	<script src="Filter/numberFixedLen.js"></script>
   </head>
 
   <body ng-app="ionicApp">
@@ -76,7 +67,7 @@
   
   <div class="list">
     <a class="item item-thumbnail-left" href="#">
-      <img src="star.jpg">
+      <img src="Content/star.jpg">
 	  <h1>{{vocabulary2[0].number}}</h1>
       <h1>{{vocabulary2[0].eg}}</h1>
       <h1>{{vocabulary2[0].ch}}</h1>
