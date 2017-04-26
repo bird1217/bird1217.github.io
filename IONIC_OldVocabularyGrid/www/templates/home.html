@@ -1,0 +1,27 @@
+﻿<ion-view title="List">
+	<ion-content class="padding">
+		<div ng-repeat="dictionary in vocabulary2">
+			<div class="card">
+				<div class="list">
+					<div class="item item-divider" style="color:red">
+						<label class="item item-input">
+						<input type="text" id="modelText" placeholder="搜尋目標文字" ng-model="SearchModel.Text" />
+					</label>
+						<button class="button button-full button-positive" ng-click="nextDictionary()">
+						清除搜尋
+					</button>
+					</div>
+				</div>
+				<div class="list">
+					<!--ui-sref="tabs.home3({todoId: data.number})"-->
+					<!--ui-sref="{{checkCondition()}}"-->
+					<a class="item" ui-sref="{{checkCondition(data)}}" ng-repeat="data in vocabulary| filter:SearchModel.Text">
+						<h1>{{data.eg}}</h1>
+						<p style="color:red">字母順序:{{data.number |numberFixedLen:3}}</p>
+					</a>
+				</div>
+			</div>
+		</div>
+
+	</ion-content>
+</ion-view>
