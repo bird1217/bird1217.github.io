@@ -1,0 +1,74 @@
+﻿<html ng-app="ionicApp">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width"/>
+
+    <title>Tabs Example</title>
+    
+	<link href="https://code.ionicframework.com/nightly/css/ionic.min.css" rel="stylesheet" />
+    <script src="https://code.ionicframework.com/nightly/js/ionic.bundle.min.js"></script>
+	
+	<!--
+	<link href="https://code.ionicframework.com/nightly/css/ionic.min.css" rel="stylesheet" />
+    <script src="https://code.ionicframework.com/nightly/js/ionic.bundle.min.js"></script>
+	<link href="ionic.min.css" rel="stylesheet" />
+    <script src="ionic.bundle.min.js"></script>
+	-->
+    <script src="app.js"></script>
+
+    <script src="HomeTabCtrl.js"></script>    
+  </head>
+
+  <body>
+
+    <ion-nav-bar class="bar-positive">
+      <ion-nav-back-button>
+      </ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-nav-view></ion-nav-view>
+
+
+    <script id="templates/tabs.html" type="text/ng-template">
+      <ion-tabs class="tabs-icon-top tabs-positive">
+        
+        <ion-tab title="英英字典" icon="ion-document-text" href="#/tab/home">
+          <ion-nav-view name="home-tab"></ion-nav-view>
+        </ion-tab>
+        
+      </ion-tabs>
+    </script>
+
+    <script id="templates/home.html" type="text/ng-template">
+      <ion-view view-title="英英字典">
+        <ion-content class="padding">
+          <ion-list>
+
+            <ion-radio name="rdo1" ng-model="displaySetting" ng-value="'ch2'">單字查詢</ion-radio>
+          </ion-list>
+          <div>
+            <div class="card">
+
+
+              <div class="list">
+                <label class="item item-input">
+                  <input type="text" placeholder="你的查詢的字是？" id="txtEnglish" ng-model="txtEnglish"/>
+		</label>
+              </div>
+            </div>
+	    
+            <div class="list">
+              <div class="item item-divider" style="color:red">
+                <button class="button  button-positive button-small icon-right ion-chevron-right" ng-disabled="finishFlag" ng-click="nextDictionary(txtEnglish)">
+                  查詢  		  {{txtEnglish}}
+                </button>
+              </div>
+            </div>
+	    
+          </div>
+
+        </ion-content>
+      </ion-view>
+    </script>    
+  </body>
+</html>
