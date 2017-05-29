@@ -44,11 +44,12 @@
 			console.log(parm);
 			//collins
 			//https://www.collinsdictionary.com/dictionary/english/fish
-			var url1='https://www.collinsdictionary.com/dictionary/english/'+parm;
-
+			var url1='https://www.collinsdictionary.com/dictionary/english/'+parm.replace(/ /, "-");
+			
+			
 			//oxford learner
 			//http://www.oxfordlearnersdictionaries.com/definition/english/fish			
-			var url2='http://www.oxfordlearnersdictionaries.com/definition/english/'+parm;
+			var url2='http://www.oxfordlearnersdictionaries.com/definition/english/'+parm.replace(/ /, "-");
 		
 			//oxford	
 			//https://en.oxforddictionaries.com/definition/us/fish
