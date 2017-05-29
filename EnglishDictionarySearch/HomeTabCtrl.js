@@ -42,14 +42,17 @@
 		$scope.txtEnglish='';	
 		$scope.nextDictionary = function(parm){
 			console.log(parm);
+			
+			var newText=parm.replace(/\ /g,'-');
+			
 			//collins
 			//https://www.collinsdictionary.com/dictionary/english/fish
-			var url1='https://www.collinsdictionary.com/dictionary/english/'+parm.replace(/ /, "-");
+			var url1='https://www.collinsdictionary.com/dictionary/english/'+newText;
 			
 			
 			//oxford learner
 			//http://www.oxfordlearnersdictionaries.com/definition/english/fish			
-			var url2='http://www.oxfordlearnersdictionaries.com/definition/english/'+parm.replace(/ /, "-");
+			var url2='http://www.oxfordlearnersdictionaries.com/definition/english/'+newText;
 		
 			//oxford	
 			//https://en.oxforddictionaries.com/definition/us/fish
