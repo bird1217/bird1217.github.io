@@ -3,14 +3,10 @@
     <meta charset="UTF-8"/>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width"/>
 
-    <title>Tabs Example</title>
-    
-<link href="https://bird1217.github.io/OldVocabulary/css/ionic.min.css" rel="stylesheet" />
-<script src="https://bird1217.github.io/OldVocabulary/js/ionic.bundle.min.js"></script>    	
-	
-	
+    <title>Tabs Example</title>    
+	<link href="https://bird1217.github.io/OldVocabulary/css/ionic.min.css" rel="stylesheet" />
+	<script src="https://bird1217.github.io/OldVocabulary/js/ionic.bundle.min.js"></script>    		
     <script src="app.js"></script>
-
     <script src="HomeTabCtrl.js"></script>    
   </head>
 
@@ -22,15 +18,11 @@
     </ion-nav-bar>
 
     <ion-nav-view></ion-nav-view>
-
-
     <script id="templates/tabs.html" type="text/ng-template">
-      <ion-tabs class="tabs-icon-top tabs-positive">
-        
+      <ion-tabs class="tabs-icon-top tabs-positive">        
         <ion-tab title="英英字典" icon="ion-document-text" href="#/tab/home">
           <ion-nav-view name="home-tab"></ion-nav-view>
-        </ion-tab>
-        
+        </ion-tab>        
       </ion-tabs>
     </script>
 
@@ -44,20 +36,21 @@
           </ion-list>
           
             <div class="card">
-              <div class="list">
-                <label class="item item-input">
-                  <input type="text" style="font-size: 20px;" placeholder="請輸入查詢內容" id="txtEnglish2" value="{{Model.txtEnglish}}" ng-model="Model.txtEnglish" select-on-click />						
+              <div class="list">                				
+				<label class="item item-input">
+					<i class="icon ion-search placeholder-icon"></i>
+					<input type="text" style="font-size: 20px;" placeholder="請輸入查詢內容" id="txtEnglish2" value="{{Model.txtEnglish}}" ng-model="Model.txtEnglish" select-on-click />	
 				</label>
               </div>
             </div>
 	    
             <div class="list">
               <div class="item item-divider" style="color:red">
-                <button class="button  button-positive button-medium icon-right ion-chevron-right" ng-disabled="finishFlag" ng-click="SearchDictionary()">
+                <button class="button button-positive button-medium icon-right ion-chevron-right" ng-click="SearchDictionary()">
                   查詢{{txtEnglish}}
                 </button>
 				
-				<button class="button  button-positive button-medium icon-right ion-chevron-right" ng-disabled="finishFlag" ng-click="ClearHistory()">
+				<button class="button button-positive button-medium icon-right ion-chevron-right" ng-click="ClearHistory()">
                   清除歷史紀錄
                 </button>
               </div>			  					

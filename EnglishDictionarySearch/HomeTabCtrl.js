@@ -14,20 +14,19 @@ angular.module('ionicApp')
 		$scope.Model={};	
 		$scope.Model.txtEnglish = '';
 		$scope.SearchDictionary = function(){
-			var parm=$scope.Model.txtEnglish;
-			if(parm=='')
+			var searchText=$scope.Model.txtEnglish;
+			if(searchText=='')
 			{
 				return;
 			}						
+			searchText=searchText.toLowerCase();
 			
-			var history={"Text":parm,"Time":new Date()};
+			var history={"Text":searchText,"Time":new Date()};
 			$scope.DictionaryHistory.splice(0, 0, history);
 			angular.forEach($scope.DictionarySelect, function(item, index) {				
 				if(item["checked"]==true)
 				{
 					var dictionaryType=item["DisplayText"];
-					var searchText=parm;
-					
 					if(dictionaryType=='Collins' || dictionaryType=='Oxford Learner' )
 					{
 						searchText=searchText.replace(/\ /g,'-');
@@ -36,7 +35,7 @@ angular.module('ionicApp')
 					console.log(uri);
 					window.open(uri);
 				}
-			}, parm);
+			}, searchText);
 						
 		};
 		$scope.ClearHistory = function(){
