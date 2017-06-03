@@ -35,33 +35,46 @@
     </script>
 
     <script id="templates/home.html" type="text/ng-template">
-      <ion-view view-title="英英字典">
+      <ion-view view-title="英英字典查詢">
         <ion-content class="padding">
-          <ion-list>
-
-            <ion-radio name="rdo1" ng-model="displaySetting" ng-value="'ch2'">單字查詢</ion-radio>
+          <ion-list>							
+			<ion-checkbox ng-repeat="item in DictionarySelect" ng-model="item.checked" ng-checked="item.checked">
+				{{ item.DisplayText }}
+			</ion-checkbox>					
           </ion-list>
-          <div>
+          
             <div class="card">
-
-
               <div class="list">
                 <label class="item item-input">
-                  <input type="text" placeholder="你的查詢的字是？" id="txtEnglish" ng-model="txtEnglish"/>
-		</label>
+                  <input type="text" style="font-size: 32px;" placeholder="請輸入查詢內容" id="txtEnglish2" value="{{Model.txtEnglish}}" ng-model="Model.txtEnglish" select-on-click />						
+				</label>
               </div>
             </div>
 	    
             <div class="list">
               <div class="item item-divider" style="color:red">
-                <button class="button  button-positive button-small icon-right ion-chevron-right" ng-disabled="finishFlag" ng-click="nextDictionary(txtEnglish)">
-                  查詢  		  {{txtEnglish}}
+                <button class="button  button-positive button-medium icon-right ion-chevron-right" ng-disabled="finishFlag" ng-click="SearchDictionary()">
+                  查詢{{txtEnglish}}
                 </button>
-              </div>
+				
+				<button class="button  button-positive button-medium icon-right ion-chevron-right" ng-disabled="finishFlag" ng-click="ClearHistory()">
+                  清除歷史紀錄
+                </button>
+              </div>			  					
             </div>
-	    
-          </div>
-
+          
+			<div class="list">
+				<div class="item item-divider">
+				  查詢歷史紀錄 <span style="color:red;">[點選做重複查詢 只保留10筆]</span>
+				</div>
+				<div ng-repeat="history in DictionaryHistory">				
+					<a class="item" ng-click="SearchHistory(history);" ng-if="$index < 10">
+					  單字:<span style="color:red;font-size:20px;">{{history["Text"]}}</span>
+					  <br/>
+					  時間:{{history["Time"] | date:'HH:mm:ss'}}
+					</a>
+				</div>
+		    </div>
         </ion-content>
       </ion-view>
     </script>    
