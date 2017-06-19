@@ -47,6 +47,17 @@ angular.module('ionicApp')
 			$scope.Model.txtEnglish=historyText;
 		};
  	
+		$scope.keyPressed = function(keyEvent) {   
+			//代碼為enter鍵輸入
+			if(keyEvent.keyCode ==13)
+			{
+			  console.log(keyEvent.keyCode);
+			  console.log($scope.Model.txtEnglish);			  
+			  $scope.SearchDictionary();
+			}			
+		  };
+
+	
 		$scope.DictionarySelect=[{"DisplayText":"Collins","Url":"https://www.collinsdictionary.com/dictionary/english/","checked":true}
 							,{"DisplayText":"Oxford Learner","Url":"http://www.oxfordlearnersdictionaries.com/definition/english/","checked":true}
 							,{"DisplayText":"Oxford","Url":"https://en.oxforddictionaries.com/definition/us/","checked":true}];
