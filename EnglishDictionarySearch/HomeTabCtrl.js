@@ -27,10 +27,14 @@ angular.module('ionicApp')
 				if(item["checked"]==true)
 				{
 					var dictionaryType=item["DisplayText"];
-					if(dictionaryType=='Collins' || dictionaryType=='Oxford Learner' )
+					if(dictionaryType=='Collins' || dictionaryType=='Oxford Learner')
 					{
 						searchText=searchText.replace(/\ /g,'-');
-					}										
+					}
+					if(dictionaryType=='Thesaurus[同義字]' )
+					{
+						searchText=searchText.replace(/\ /g,'%20');
+					}
 					var uri=item["Url"]+searchText;
 					console.log(uri);
 					window.open(uri);
@@ -60,8 +64,8 @@ angular.module('ionicApp')
 	
 		$scope.DictionarySelect=[{"DisplayText":"Collins","Url":"https://www.collinsdictionary.com/dictionary/english/","checked":true}
 							,{"DisplayText":"Oxford Learner","Url":"http://www.oxfordlearnersdictionaries.com/definition/english/","checked":true}
-							,{"DisplayText":"Oxford","Url":"https://en.oxforddictionaries.com/definition/us/","checked":true}];
-							//,{"DisplayText":"Cambridge","Url":"http://dictionary.cambridge.org/dictionary/learner-english/","checked":true}
+							,{"DisplayText":"Oxford","Url":"https://en.oxforddictionaries.com/definition/us/","checked":true}
+							,{"DisplayText":"Thesaurus[同義字]","Url":"http://www.thesaurus.com/browse/","checked":true}];
 		
 		$scope.DictionaryHistory=[];
 		
