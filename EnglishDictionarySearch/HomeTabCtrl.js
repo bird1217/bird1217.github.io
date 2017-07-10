@@ -65,7 +65,8 @@ angular.module('ionicApp')
 		$scope.DictionarySelect=[{"DisplayText":"Collins","Url":"https://www.collinsdictionary.com/dictionary/english/","checked":true}
 							,{"DisplayText":"Oxford Learner","Url":"http://www.oxfordlearnersdictionaries.com/definition/english/","checked":true}
 							,{"DisplayText":"Oxford","Url":"https://en.oxforddictionaries.com/definition/us/","checked":true}
-							,{"DisplayText":"Thesaurus[同義字]","Url":"http://www.thesaurus.com/browse/","checked":true}];
+							,{"DisplayText":"Google 圖片","Url":"https://www.google.com.tw/search?site=imghp&tbm=isch&source=hp&q=","checked":false}
+							,{"DisplayText":"Thesaurus[同義字]","Url":"http://www.thesaurus.com/browse/","checked":false}];
 		
 		$scope.DictionaryHistory=[];
 		
