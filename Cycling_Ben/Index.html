@@ -1,4 +1,4 @@
-<html>
+﻿<html>
   <head>
     <meta charset="UTF-8"/>    
     <title>Tabs Example</title>
@@ -12,57 +12,37 @@
     	<script>
 		$(document).ready(function () {
 			
-            var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
-                
             var targetFTP = 260;
 
-            db.transaction(function (tx) {
-                //tx.executeSql('drop TABLE FTP');
-
-                tx.executeSql('CREATE TABLE IF NOT EXISTS FTP (id unique, value)');
-            });
-                    
-            db.transaction(function (tx) {
-                tx.executeSql('SELECT * FROM FTP', [], function (tx, results) {
-                var recordCount = results.rows.length;
-                if(recordCount==0)
-                {                  
-                    tx.executeSql('INSERT INTO FTP (id, value) SELECT 1, '+ targetFTP);
-                }
-                else
-                {
-                    targetFTP = results.rows[0].value;
-                }
-                
-                initJQTable(targetFTP);
-                }, null);
-            });
+            initJQTable(targetFTP);
                      
 		});
 
         function btnClick()
         {
-            var inputValue =$('#ftpValue').val();
-            if(!isNaN(parseInt(inputValue)))
+            var targetFTP =$('#ftpValue').val();
+            
+            if(!isNaN(parseInt(targetFTP)))
             {
-                var db = openDatabase('mydb', '1.0', 'Test DB', 2 * 1024 * 1024);
-
-                db.transaction(function (tx) {                
-                    tx.executeSql('update FTP set value='+inputValue);
-                });
+                $('#example tbody').empty();
+                initJQTable(+targetFTP);
             }
         }
         function initJQTable(targetFTP)
         {
-            $('#example').DataTable(
-                {
-                    paging: false
-                    ,ordering: false
-                    ,info: false
-                    ,bFilter: false
-                    ,bInfo: false
-                }
-            );
+            if(targetFTP==260)
+            {
+                $('#example').DataTable(
+                    {
+                        paging: false
+                        ,ordering: false
+                        ,info: false
+                        ,bFilter: false
+                        ,bInfo: false
+                    }
+                );                
+            }
+
 
             $(".dataTables_empty").empty();
             $('.odd').hide();
@@ -96,14 +76,9 @@
 
                 student += '<tr>';
                 
-                var colorClass='cellRight_nonFTP';
-                console.log('ftpValue:'+ftpValue);
-                console.log('targetFTP:'+targetFTP);
-                
+                var colorClass='cellRight_nonFTP';                                
                 if(ftpValue === targetFTP)
-                {
-                    console.log('ftpValue:'+ftpValue);
-                    console.log('targetFTP:'+targetFTP);
+                {                    
                     colorClass='cellRight_targetFTP';
                 }
                                 
