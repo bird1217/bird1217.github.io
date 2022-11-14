@@ -112,7 +112,15 @@
   </head>
 
   <body>
-	<table id="example" class="table table-striped" style="width:50%">
+    <div class="form-group">
+        <label for="exampleInputEmail1">FTP:</label>
+        <input type="email" id="ftpValue" aria-describedby="emailHelp" placeholder="Enter FTP Value">        
+        <button class="btn btn-primary" type="button" onclick="btnClick()">Update</button>
+    </div>
+
+    
+    <br/><br/>
+	<table id="example" class="table table-striped" style="width:65%">
         <thead class="header">
             <tr>
                 <th colspan="2" id="headerCenter">z4</th>                       
@@ -150,12 +158,7 @@
             </tr>
         </tfoot>
     </table>
+    
 
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-          <button class="btn btn-outline-secondary" type="button" onclick="btnClick()">Update</button>
-        </div>
-        <input id="ftpValue" type="text" class="form-control" placeholder="FTP" aria-label="" aria-describedby="basic-addon1">
-      </div>
       
 </html>
