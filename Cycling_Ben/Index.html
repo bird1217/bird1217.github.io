@@ -25,6 +25,8 @@
             if(!isNaN(parseInt(targetFTP)))
             {
                 $('#example tbody').empty();
+
+                $('#ftpZoneTable tbody').empty();
                 initJQTable(+targetFTP);
             }
         }
@@ -40,7 +42,17 @@
                         ,bFilter: false
                         ,bInfo: false
                     }
-                );                
+                );
+
+                $('#ftpZoneTable').DataTable(
+                    {
+                        paging: false
+                        ,ordering: false
+                        ,info: false
+                        ,bFilter: false
+                        ,bInfo: false
+                    }
+                );
             }
 
 
@@ -58,6 +70,44 @@
                     ,{"FTP":targetFTP+15,"cell1":1,"cell2":0.97,"cell3":1.1,"cell4":0.8,"cell5":0.85,"cell6":0.82,"cell7":0.78}
                     ,{"FTP":targetFTP+20,"cell1":1,"cell2":0.97,"cell3":1.1,"cell4":0.8,"cell5":0.85,"cell6":0.82,"cell7":0.78}
             ];
+
+            var ftpRange =[
+                          {"Zone":1,"From":0,"To":0.55,"Color":"#D9EAD3"}
+                        , {"Zone":2,"From":0.56,"To":0.75,"Color":"#D9EAD3"}
+                        , {"Zone":3,"From":0.76,"To":0.9,"Color":"#FFE599"}
+                        , {"Zone":4,"From":0.91,"To":1.05,"Color":"#F1C232"}
+                        , {"Zone":5,"From":1.06,"To":1.2,"Color":"#EA9999"}
+                        , {"Zone":6,"From":1.21,"To":1.5,"Color":"#CC0000"} ];
+            
+
+            var student = '';
+            
+            $('#ftpZone').text(targetFTP);
+
+            $.each(ftpRange, function (key, value) {                
+                var ftpValue = targetFTP;
+                var cell0=Math.floor(value["From"]*100)+'%';
+                var cell1=Math.floor(value["To"]*100)+'%';
+                var cell2=value["Zone"];
+                var background=value["Color"];
+
+                var ftpFrom = ftpValue*value["From"];                
+                var ftpTo = ftpValue*value["To"];
+
+                student += '<tr>';
+                
+                var colorClass='';                                
+                                                
+                student += '<td class="cellRight_nonFTP" style="background-color:'+background+';"">' + cell0 + '</td>';
+                student += '<td class="cellRight_nonFTP" style="background-color:'+background+';"">' + cell1 + '</td>';
+                student += '<td class="cellRight_nonFTP" style="background-color:'+background+';"">' + cell2 + '</td>';
+                student += '<td class="cellRight_nonFTP" style="background-color:'+background+';"">' + Math.floor(ftpFrom) + '</td>';
+                student += '<td class="cellRight_nonFTP" style="background-color:'+background+';"">' + Math.floor(ftpTo) + '</td>';
+                
+                student += '</tr>';                
+            });
+            $('#ftpZoneTable').append(student);
+
 
             var student = '';
             
@@ -120,7 +170,8 @@
 
     
     <br/><br/>
-	<table id="example" class="table table-striped" style="width:65%">
+	
+    <table id="example" class="table table-striped" style="width:65%">
         <thead class="header">
             <tr>
                 <th colspan="2" id="headerCenter">z4</th>                       
@@ -158,7 +209,27 @@
             </tr>
         </tfoot>
     </table>
-    
-
       
+
+    <br/><br/>
+
+    <table id="ftpZoneTable" class="table table-striped" style="width:65%">
+        <thead class="header">
+            <tr>
+                <th>FTP</th>                       
+                <th id="ftpZone">260</th>
+                <th>Zone</th>                       
+                <th></th>
+                <th></th>                                                                  
+            </tr>            
+        </thead>
+        <tbody>
+                        
+        </tbody>
+        <tfoot>
+            <tr>
+                
+            </tr>
+        </tfoot>
+    </table>
 </html>
