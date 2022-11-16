@@ -12,9 +12,17 @@
     	<script>
 		$(document).ready(function () {
 			
-            var targetFTP = 260;
+            let url_string = window.location;
+            let url = new URL(url_string);
+            
+            var targetFTP = url.searchParams.get("ftp");
+            if(targetFTP== null)
+            {
+                targetFTP=260;
+            }
+            
 
-            initJQTable(targetFTP);
+            initJQTable(parseInt(targetFTP));
                      
 		});
 
