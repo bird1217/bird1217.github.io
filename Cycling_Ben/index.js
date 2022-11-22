@@ -73,7 +73,7 @@ function initJQTable(targetFTP) {
     var data = [];
 
     for (var index = -3; index <= 4; index = index + 1) {
-        data.push({ "FTP": targetFTP + 5 * index, "cell1": 1.05, "cell2": 0.92, "cell3": 1.1, "cell4": 0.8, "cell5": 0.85, "cell6": 0.82, "cell7": 0.78 });
+        data.push({ "FTP": targetFTP + 5 * index, "cell1": 1.05, "cell2": 0.92, "cell2_1": 0.98, "cell3": 1.1, "cell4": 0.8, "cell5": 0.85, "cell6": 0.82, "cell7": 0.78 });
     }
 
     var ftpRange = [
@@ -122,6 +122,7 @@ function initJQTable(targetFTP) {
 
         var cell1 = ftpValue * value["cell1"];
         var cell2 = ftpValue * value["cell2"];
+        var cell2_1 = ftpValue * value["cell2_1"];
 
         var cell3 = ftpValue * value["cell3"];
         var cell4 = ftpValue * value["cell4"];
@@ -139,6 +140,7 @@ function initJQTable(targetFTP) {
 
         student += '<td id="' + colorClass + '">' + Math.floor(cell1) + '</td>';
         student += '<td id="' + colorClass + '">' + Math.floor(cell2) + '</td>';
+        student += '<td id="' + colorClass + '">' + Math.floor(cell2_1) + '</td>';
         student += '<td id="' + colorClass + '">' + '</td>';
         student += '<td id="' + colorClass + '">' + Math.floor(cell3) + '</td>';
         student += '<td id="' + colorClass + '">' + Math.floor(cell4) + '</td>';
