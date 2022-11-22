@@ -73,7 +73,7 @@ function initJQTable(targetFTP) {
     var data = [];
 
     for (var index = -3; index <= 4; index = index + 1) {
-        data.push({ "FTP": targetFTP + 5 * index, "cell1": 1, "cell2": 0.97, "cell3": 1.1, "cell4": 0.8, "cell5": 0.85, "cell6": 0.82, "cell7": 0.78 });
+        data.push({ "FTP": targetFTP + 5 * index, "cell1": 1.05, "cell2": 0.92, "cell3": 1.1, "cell4": 0.8, "cell5": 0.85, "cell6": 0.82, "cell7": 0.78 });
     }
 
     var ftpRange = [
