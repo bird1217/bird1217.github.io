@@ -77,12 +77,12 @@ function initJQTable(targetFTP) {
     }
 
     var ftpRange = [
-        { "Zone": 1, "From": 0, "To": 0.55, "Color": "#D9EAD3" }
-        , { "Zone": 2, "From": 0.56, "To": 0.75, "Color": "#D9EAD3" }
-        , { "Zone": 3, "From": 0.76, "To": 0.9, "Color": "#FFE599" }
-        , { "Zone": 4, "From": 0.91, "To": 1.05, "Color": "#F1C232" }
-        , { "Zone": 5, "From": 1.06, "To": 1.2, "Color": "#EA9999" }
-        , { "Zone": 6, "From": 1.21, "To": 1.5, "Color": "#CC0000" }];
+        { "Zone": 1, "From": 0, "To": 0.55, "Color": "#3DB39F" }
+        , { "Zone": 2, "From": 0.56, "To": 0.75, "Color": "#3DB33F" }
+        , { "Zone": 3, "From": 0.76, "To": 0.9, "Color": "#FCD549" }
+        , { "Zone": 4, "From": 0.91, "To": 1.05, "Color": "#FC9C49" }
+        , { "Zone": 5, "From": 1.06, "To": 1.2, "Color": "#E34074" }
+        , { "Zone": 6, "From": 1.21, "To": 1.5, "Color": "#8963D8" }];
 
 
     var student = '';
