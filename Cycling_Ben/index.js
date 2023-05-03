@@ -30,6 +30,7 @@ function btnClick() {
     if (parseInt(targetWeight)) {
         weight = targetWeight;
     }
+
     if (!isNaN(parseInt(targetFTP))) {
         $('#example tbody').empty();
 
@@ -109,6 +110,9 @@ function initJQTable(targetFTP) {
         student += '<td class="cellRight_nonFTP" style="background-color:' + background + ';"">' + cell2 + '</td>';
         student += '<td class="cellRight_nonFTP" style="background-color:' + background + ';"">' + Math.floor(ftpFrom) + '</td>';
         student += '<td class="cellRight_nonFTP" style="background-color:' + background + ';"">' + Math.floor(ftpTo) + '</td>';
+
+        var ftpDivideWeight = (Math.floor(ftpFrom)/weight).toFixed(1) +"~" + (Math.floor(ftpTo)/weight).toFixed(1);
+        student += '<td class="cellRight_nonFTP">' + ftpDivideWeight + '</td>';
 
         student += '</tr>';
     });
