@@ -1,162 +1,206 @@
-var weight;
-$(document).ready(function () {
+var tripColumn = [
+	{ data: '105%' },
+	{ data: '92%' },
+	{ data: '98%' },
+	{ data: 'FTP' },
+	{ data: 'EMPTY' },
+	{ data: '110%' },
+	{ data: '80%' },
+	{ data: 'EMPTY' },
+	{ data: '85%' },
+	{ data: '82%' },
+	{ data: '78%' }
+];
 
-    let url_string = window.location;
-    let url = new URL(url_string);
 
-    weight = url.searchParams.get("w");
-    if (weight == null) {
-        weight = 67;
-    }
+//<!-- {"zone":1,"From":0,"To":0.55,"ValueFrom":0,"ValueTo":0} -->
 
-    var targetFTP = url.searchParams.get("ftp");
-    if (targetFTP == null) {
-        targetFTP = 265;
-    }
+var zoneColumn = [
+	{ data: 'From' },
+	{ data: 'To' },
+	{ data: 'zone' },
+	{ data: 'ValueFrom' },
+	{ data: 'ValueTo' },
+	{ data: 'ClimePower' }
 
-    var ftpWeight = parseFloat(parseInt(targetFTP) / parseInt(weight)).toFixed(2);
+];
 
-    $('#ftpWeight').text(ftpWeight);
 
-    initJQTable(parseFloat(targetFTP));
+var defaultFTP = 290;
+var defaultWeight = 69;
 
+var sampleData = {
+	"105%": 1.05
+	, "92%": 0.92
+	, "98%": 0.98
+	, "FTP": "FTP"
+	, "EMPTY": ""
+	, "110%": 1.1
+	, "80%": 0.8
+	, "EMPTY": ""
+	, "85%": 0.85
+	, "82%": 0.82
+	, "78%": 0.78
+};
+
+$(function () {
+	var ftp = defaultFTP;
+
+
+	var powerArray = getPowerData();
+
+	//TrainingGrid
+	commonManager.jqDataTable.tableConfig["createdRow"] = function (row, data, dataIndex) {
+		if (this.selector.toString() == '.businessTripGrid') {
+			if (data["FTP"] == defaultFTP) {
+				$(row).addClass('cellRight_targetFTP');
+			}
+			else {
+				$(row).addClass('cellRight_nonFTP');
+			}
+		}
+
+
+		if (this.selector.toString() == '.zoneGrid') {
+			$(row).css("background-color", data["Color"]);
+		}
+	};
+
+	commonManager.jqDataTable.tableSetting(".businessTripGrid", tripColumn, [], true, false);
+	commonManager.jqDataTable.businessTripGrid.columns.adjust().draw(); // Redraw the DataTable
+
+
+	//ZoneGrid
+	commonManager.jqDataTable.tableSetting(".zoneGrid", zoneColumn, [], true, false);
+	commonManager.jqDataTable.zoneGrid.columns.adjust().draw(); // Redraw the DataTable
+
+
+	showChart();
 });
 
-function btnClick() {
-    var targetFTP = $('#ftpValue').val();
 
-    var targetWeight = parseInt($('#weightValue').val());
+function showChart()
+{
+	drawFTPChart();
 
-    if (parseInt(targetWeight)) {
-        weight = targetWeight;
-    }
-
-    if (!isNaN(parseInt(targetFTP))) {
-        $('#example tbody').empty();
-
-        $('#ftpZoneTable tbody').empty();
-
-        var ftpWeight = parseFloat(parseInt(targetFTP) / parseInt(weight)).toFixed(2);
-        $('#ftpWeight').text(ftpWeight);
-
-        initJQTable(+targetFTP);
-    }
+	drawZoneChart();
 }
 
-function initJQTable(targetFTP) {
-    $('#example').DataTable(
-        {
-            paging: false
-            , ordering: false
-            , info: false
-            , bFilter: false
-            , bInfo: false
-            , destroy: true
-            , dom: 'Bfrtip'
-        }
-    );
+function drawZoneChart() {
+	var zoneArray = getZoneData(defaultFTP);
 
-    $('#ftpZoneTable').DataTable(
-        {
-            paging: false
-            , ordering: false
-            , info: false
-            , bFilter: false
-            , bInfo: false
-            , destroy: true
-            , dom: 'Bfrtip'
-        }
-    );
-
-    $(".dataTables_empty").empty();
-    $('.odd').hide();
-
-    var data = [];
-
-    for (var index = -3; index <= 4; index = index + 1) {
-        data.push({ "FTP": targetFTP + 5 * index, "cell1": 1.05, "cell2": 0.92, "cell2_1": 0.97, "cell2_2": 1.0 , "cell3": 1.1, "cell4": 0.8, "cell5": 0.85, "cell6": 0.82, "cell7": 0.78 });
-    }
-
-    var ftpRange = [
-        { "Zone": 1, "From": 0, "To": 0.55, "Color": "#3DB39F" }
-        , { "Zone": 2, "From": 0.56, "To": 0.75, "Color": "#3DB33F" }
-        , { "Zone": 3, "From": 0.76, "To": 0.9, "Color": "#FCD549" }
-        , { "Zone": 4, "From": 0.91, "To": 1.05, "Color": "#FC9C49" }
-        , { "Zone": 5, "From": 1.06, "To": 1.2, "Color": "#E34074" }
-        , { "Zone": 6, "From": 1.21, "To": 1.5, "Color": "#8963D8" }];
+	commonManager.jqDataTable.zoneGrid.clear().draw();
 
 
-    var student = '';
-    $('#weight').text('Weight:' + weight);
-    $('#ftp').text('FTP:' + targetFTP);
-    $('#ftpZone').text('FTP:' + targetFTP);
-
-    $.each(ftpRange, function (key, value) {
-        var ftpValue = targetFTP;
-        var cell0 = Math.floor(value["From"] * 100) + '%';
-        var cell1 = Math.floor(value["To"] * 100) + '%';
-        var cell2 = value["Zone"];
-        var background = value["Color"];
-
-        var ftpFrom = ftpValue * value["From"];
-        var ftpTo = ftpValue * value["To"];
-
-        student += '<tr>';
-
-        var colorClass = '';
-
-        student += '<td class="cellRight_nonFTP" style="background-color:' + background + ';"">' + cell0 + '</td>';
-        student += '<td class="cellRight_nonFTP" style="background-color:' + background + ';"">' + cell1 + '</td>';
-        student += '<td class="cellRight_nonFTP" style="background-color:' + background + ';"">' + cell2 + '</td>';
-        student += '<td class="cellRight_nonFTP" style="background-color:' + background + ';"">' + Math.floor(ftpFrom) + '</td>';
-        student += '<td class="cellRight_nonFTP" style="background-color:' + background + ';"">' + Math.floor(ftpTo) + '</td>';
-
-        var ftpDivideWeight = (Math.floor(ftpFrom)/weight).toFixed(1) +"~" + (Math.floor(ftpTo)/weight).toFixed(1);
-        student += '<td class="cellRight_nonFTP">' + ftpDivideWeight + '</td>';
-
-        student += '</tr>';
-    });
-    $('#ftpZoneTable').append(student);
-
-
-    var student = '';
-
-    $.each(data, function (key, value) {
-        var ftpValue = value["FTP"];
-
-        var cell1 = ftpValue * value["cell1"];
-        var cell2 = ftpValue * value["cell2"];
-        var cell2_1 = ftpValue * value["cell2_1"];
-        var cell2_2 = ftpValue * value["cell2_2"];
-
-        var cell3 = ftpValue * value["cell3"];
-        var cell4 = ftpValue * value["cell4"];
-
-        var cell5 = ftpValue * value["cell5"];
-        var cell6 = ftpValue * value["cell6"];
-        var cell7 = ftpValue * value["cell7"];
-
-        student += '<tr>';
-
-        var colorClass = 'cellRight_nonFTP';
-        if (ftpValue === targetFTP) {
-            colorClass = 'cellRight_targetFTP';
-        }
-
-        student += '<td id="' + colorClass + '">' + Math.floor(cell1) + '</td>';
-        student += '<td id="' + colorClass + '">' + Math.floor(cell2) + '</td>';
-        student += '<td id="' + colorClass + '">' + Math.floor(cell2_1) + '</td>';
-        student += '<td id="' + colorClass + '">' + Math.floor(cell2_2) + '</td>';
-        student += '<td id="' + colorClass + '">' + '</td>';
-        student += '<td id="' + colorClass + '">' + Math.floor(cell3) + '</td>';
-        student += '<td id="' + colorClass + '">' + Math.floor(cell4) + '</td>';
-        student += '<td id="' + colorClass + '">' + '</td>';
-        student += '<td id="' + colorClass + '">' + Math.floor(cell5) + '</td>';
-        student += '<td id="' + colorClass + '">' + Math.floor(cell6) + '</td>';
-        student += '<td id="' + colorClass + '">' + Math.floor(cell7) + '</td>';
-        student += '</tr>';
-    });
-
-    //INSERTING ROWS INTO TABLE 
-    $('#example').append(student);
+	commonManager.jqDataTable.zoneGrid.rows.add(zoneArray); // Add new data
+	commonManager.jqDataTable.zoneGrid.columns.adjust().draw(); // Redraw the DataTable
 }
+
+
+function drawFTPChart() {
+	var txtFTP = document.getElementById("ftpValue").value;
+	var valueFTP = Number.parseInt(txtFTP);
+	if (!isNaN(valueFTP)) {
+		defaultFTP = valueFTP;
+	}
+
+	var txtWeight = document.getElementById("weightValue").value;
+	var valueWeight = Number.parseInt(txtWeight);
+	if (!isNaN(valueWeight)) {
+		defaultWeight = valueWeight;
+	}
+
+	document.getElementById("ftpDisplay").textContent = defaultFTP;
+	document.getElementById("weightDisplay").textContent = defaultWeight;
+	document.getElementById("climePowerDisplay").textContent = (defaultFTP / defaultWeight).toFixed(1);
+
+
+	var powerArray = [];
+
+	//設定ftp列表
+	for (i = -3; i < 4; i++) {
+		var shiftValue = (5 * i);
+
+		var powerData = calculatePowerObject(defaultFTP + shiftValue);
+
+		powerArray.push(powerData);
+	}
+
+	commonManager.jqDataTable.businessTripGrid.clear().draw();
+
+
+	commonManager.jqDataTable.businessTripGrid.rows.add(powerArray); // Add new data
+	commonManager.jqDataTable.businessTripGrid.columns.adjust().draw(); // Redraw the DataTable
+}
+
+
+function getPowerData() {
+	var ftp = defaultFTP;
+
+
+	var powerArray = [];
+
+	//設定ftp列表
+	for (i = -3; i < 4; i++) {
+		var powerData = calculatePowerObject(ftp + (5 * i));
+		powerArray.push(powerData);
+	}
+
+	return powerArray;
+}
+
+
+function calculatePowerObject(ftp) {
+	var powerObject = JSON.parse(JSON.stringify(sampleData));
+
+
+	Object.keys(powerObject).forEach(key => {
+		if (Number.parseFloat(powerObject[key])) {
+			var powerValue = (ftp * powerObject[key]).toFixed(0);
+			powerObject[key] = powerValue;
+		}
+
+		if (key == "FTP") {
+			powerObject[key] = ftp;
+		}
+	});
+
+	return powerObject;
+}
+
+
+function getZoneData(ftp) {
+	var zoneDts = [];
+
+	zoneDts.push({ "Color": "#3DB39F", "zone": 1, "From": 0, "To": 0.55, "ValueFrom": 0, "ValueTo": 0, "ClimePower": "" });
+	zoneDts.push({ "Color": "#3DB33F", "zone": 2, "From": 0.56, "To": 0.75, "ValueFrom": 0, "ValueTo": 0, "ClimePower": "" });
+	zoneDts.push({ "Color": "#FCD549", "zone": 3, "From": 0.76, "To": 0.9, "ValueFrom": 0, "ValueTo": 0, "ClimePower": "" });
+	zoneDts.push({ "Color": "#FC9C49", "zone": 4, "From": 0.91, "To": 1.05, "ValueFrom": 0, "ValueTo": 0, "ClimePower": "" });
+	zoneDts.push({ "Color": "#E34074", "zone": 5, "From": 1.06, "To": 1.2, "ValueFrom": 0, "ValueTo": 0, "ClimePower": "" });
+	zoneDts.push({ "Color": "#8963D8", "zone": 6, "From": 1.21, "To": 1.5, "ValueFrom": 0, "ValueTo": 0, "ClimePower": "" });
+
+
+	for (i = 0; i < zoneDts.length; i++) {
+		let zoneObject = zoneDts[i];
+
+		zoneObject.ValueFrom = Number.parseInt((zoneObject.From * defaultFTP).toFixed(0));
+
+		zoneObject.ValueTo = Number.parseInt((zoneObject.To * defaultFTP).toFixed(0));
+
+		zoneObject.From = (zoneObject.From * 100).toFixed(0) + "%";
+
+		zoneObject.To = (zoneObject.To * 100).toFixed(0) + "%";
+
+		var climePowerFrom = (Number.parseInt(zoneObject.ValueFrom) / defaultWeight).toFixed(1);
+		var climePowerTo = (Number.parseInt(zoneObject.ValueTo) / defaultWeight).toFixed(1);
+
+		if (climePowerFrom == "0.0") {
+			climePowerFrom = "0";
+		}
+
+		zoneObject.ClimePower = climePowerFrom + " ~ " + climePowerTo;
+	}
+
+	return zoneDts;
+}
+
