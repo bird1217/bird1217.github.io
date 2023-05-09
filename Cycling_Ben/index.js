@@ -26,7 +26,7 @@ var zoneColumn = [
 ];
 
 
-var defaultFTP = 290;
+var defaultFTP = 295;
 var defaultWeight = 69;
 
 var sampleData = {
