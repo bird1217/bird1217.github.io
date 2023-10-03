@@ -33,7 +33,21 @@ $(document).ready(function () {
 
     $('#ftpWeight').text(ftpWeight);
 
-    initJQTable(parseFloat(targetFTP));	
+    initJQTable(parseFloat(targetFTP));
+
+    $.each(trainingArray, function (key, value) {
+        console.log(value);
+        console.log(value.Name);
+
+
+        var newOption = document.createElement('option');
+
+        newOption.value = value.Name;        
+        newOption.textContent = value.Name;
+
+        $('#Lesson').append(newOption);
+        
+    });
 });
 
 function btnClick() {
