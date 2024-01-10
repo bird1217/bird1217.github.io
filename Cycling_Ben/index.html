@@ -1,0 +1,123 @@
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>Tabs Example</title>
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css"
+        rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.13.1/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    <script src="jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.1/js/dataTables.bootstrap5.min.js"></script>    
+    <script src="lesson_index.js"></script>
+
+    <style>
+        #headerCenter {
+            text-align: center;
+        }
+
+        #headerRight {
+            text-align: right;
+        }
+
+        #cellRight_targetFTP {
+            text-align: right;
+            color: #000021;
+            font-weight: bold;
+        }
+
+        #cellRight_nonFTP {
+            text-align: right;
+            color: #D9D9E0;
+            font-weight: bold;
+        }
+
+        .Z3 {
+            background-color: #FCD549 !important;;            
+        }
+
+        .Z4 {
+            background-color: #FC9C49 !important;;
+        }
+
+        .Z5 {
+            background-color: #E34074 !important;;
+        }
+    </style>
+</head>
+
+
+
+<body>
+	課表選擇:
+	<select name="Lesson" id="Lesson">
+		<option value="">請選擇</option>
+		
+	</select>
+	
+	
+    <div class="form-group">
+        <label for="exampleInputEmail1">FTP:</label>
+        <input type="email" id="ftpValue" aria-describedby="emailHelp" placeholder="Enter FTP Value">
+        <label for="exampleInputEmail2">Weight:</label>
+        <input type="email" id="weightValue" aria-describedby="emailHelp" placeholder="Enter Weight Value">
+        <button class="btn btn-primary" type="button" onclick="btnClick()">Update</button>
+    </div>
+
+
+    <br /><br />
+	
+    <table id="traingTable" class="table table-striped" style="width:30%">
+        <thead class="header">
+            <tr>                
+                <th id="ftpZone1">222</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+        <tfoot>
+            <tr>
+
+            </tr>
+        </tfoot>
+    </table>
+
+<br /><br />
+<table id="finishedTable" class="table table-striped" style="width:30%">
+    <thead class="header">        
+    </thead>
+    <tbody>
+        
+    </tbody>
+    <tfoot>
+        <tr>
+
+        </tr>
+    </tfoot>
+</table>
+    <br /><br />
+
+    <table id="ftpZoneTable" class="table table-striped" style="width:30%">
+        <thead class="header">
+            <tr>
+                <th>FTP</th>
+                <th id="ftpZone2">222</th>
+                <th>Zone</th>
+                <th></th>
+                <th></th>
+                <th>推力</th>
+            </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+        <tfoot>
+            <tr>
+
+            </tr>
+        </tfoot>
+    </table>
+
+</html>
