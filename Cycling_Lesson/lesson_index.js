@@ -14,6 +14,8 @@ trainingArray.push({"Name":"END_1.5hr","TrainingData":[{"ftp":0.75,"time":"10m",
 trainingArray.push({"Name":"END_2.0hr","TrainingData":[{"ftp":0.73,"time":"15m","color":"#3DB33F"},{"ftp":1.0,"time":"10m","color":"#FC9C49"},{"ftp":0.73,"time":"10m","color":"#3DB33F"},{"ftp":1.0,"time":"10m","color":"#FC9C49"},{"ftp":0.73,"time":"10m","color":"#3DB33F"},{"ftp":1.0,"time":"10m","color":"#FC9C49"},{"ftp":0.73,"time":"10m","color":"#3DB33F"},{"ftp":1.1,"time":"3m","color":"#E34074"},{"ftp":0.55,"time":"5m","color":"#3DB39F"},{"ftp":1.1,"time":"3m","color":"#E34074"},{"ftp":0.55,"time":"5m","color":"#3DB39F"},{"ftp":1.1,"time":"3m","color":"#E34074"},{"ftp":0.55,"time":"5m","color":"#3DB39F"},{"ftp":1.1,"time":"3m","color":"#E34074"},{"ftp":0.55,"time":"5m","color":"#3DB39F"},{"ftp":0.55,"time":"10m","color":"#3DB39F"}]});
 trainingArray.push({"Name":"補班日_周五用_RECOVERY","TrainingData":[{"ftp":0.75,"time":"20m","color":"#3DB33F"},{"ftp":1.4,"time":"0m20s","color":"#8963D8"},{"ftp":0.3,"time":"0m20s x 10","color":"#3DB39F"},{"ftp":0.7,"time":"20.00m","color":"#3DB33F"},{"ftp":1.4,"time":"0m20s","color":"#8963D8"},{"ftp":0.3,"time":"0m20s x 10","color":"#3DB39F"},{"ftp":0.7,"time":"15.00m","color":"#3DB33F"}]});
 
+trainingArray.push({"Name":"BaseBuild_II","TrainingData":[{"ftp":0.7,"time":"5m","color":"#3DB33F"},{"ftp":0.8,"time":"5m","color":"#FCD549"},{"ftp":1.0,"time":"1m","color":"#FC9C49"},{"ftp":0.7,"time":"5m","color":"#3DB33F"},{"ftp":0.8,"time":"5m","color":"#FCD549"},{"ftp":1.0,"time":"1m","color":"#FC9C49"},{"ftp":0.7,"time":"5m","color":"#3DB33F"},{"ftp":0.8,"time":"5m","color":"#FCD549"},{"ftp":1.0,"time":"1m","color":"#FC9C49"},{"ftp":0.7,"time":"5m","color":"#3DB33F"},{"ftp":0.8,"time":"5m","color":"#FCD549"},{"ftp":1.0,"time":"1m","color":"#FC9C49"},{"ftp":0.7,"time":"5m","color":"#3DB33F"},{"ftp":0.88,"time":"5m","color":"#FCD549"},{"ftp":0.7,"time":"5m","color":"#3DB33F"},{"ftp":0.88,"time":"5m","color":"#FCD549"},{"ftp":0.7,"time":"5m","color":"#3DB33F"},{"ftp":0.88,"time":"5m","color":"#FCD549"},{"ftp":0.7,"time":"5m","color":"#3DB33F"},{"ftp":0.88,"time":"5m","color":"#FCD549"},{"ftp":0.7,"time":"5m","color":"#3DB33F"}]});
+
 var weight;
 $(document).ready(function () {
 			
@@ -52,6 +54,19 @@ $(document).ready(function () {
         $('#Lesson').append(newOption);
         
     });
+
+
+    $('#Lesson').change(function() { 
+        var dom=$(this);
+        
+        var selectionText = dom.val();
+        debugger;
+        if(selectionText)
+        {
+            btnClick();
+        }
+
+    }); 
 });
 
 function btnClick() {
@@ -74,7 +89,9 @@ function btnClick() {
 	$('#ftpWeight').text(ftpWeight);
 	
 	var lessonName = $('#Lesson').val();
-	initJQTable(+targetFTP,lessonName);    
+	initJQTable(+targetFTP,lessonName);
+    
+    $('#finishedTable tbody').empty();
 }
 
 function initJQTable(targetFTP,name) {    
@@ -159,6 +176,14 @@ function initJQTable(targetFTP,name) {
     });
     $('#ftpZoneTable').append(student);    
 		
+
+    $('#traingTable tbody tr').click(function() { 
+        var dom =$(this);
+
+                
+        console.log(dom);
+        $('#finishedTable tbody').append(dom);
+    }); 
 }
 
 
